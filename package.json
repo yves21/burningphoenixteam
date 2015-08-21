@@ -1,0 +1,19 @@
+{
+  "name": "burningphoenixteam",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yves21/burningphoenixteam.git"
+  },
+  "author": "yves21",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yves21/burningphoenixteam/issues"
+  },
+  "homepage": "https://github.com/yves21/burningphoenixteam#readme"
+}

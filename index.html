@@ -11,74 +11,120 @@
 
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" type="text/css" href="css/bpt.css">
+		<link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="lib/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+		<link href="css/bpt.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/index.css">
 		<link rel="stylesheet" media="screen and (max-device-width:1024px)" type="text/css" href="css/pc.css">
 		<link rel="stylesheet" media="screen and (max-device-width:400px)" type="text/css" href="css/mobile.css">
 	</head>
 	<body>
-		<div id="container">
+		<div id="container" class="container-fluid">
 			<header>
-			    HEADER
+			    <img src="image/banniere.jpg" width="800" alt="Banner" />
 			</header>
 
 			<nav>
-				<ul>
-					<li>Présentation de la team</li>
-					<li>Historique des BPT</li>
-					<li>Page contact recrutement</li>
-					<li>page par jeux
-						<ul>
-							<li>Star Citizen </li>
-							<li>Arma 3 </li>
-							<li>World of tank</li>
-							<li>Ark</li>
-							<li>Project Zomboid</li>
-							<li>Company of Heroes 2</li>
-							<li>Wargame Red Dragon</li>
-							<li>Supreme commander</li>
-							<li>Autres</li>
+				<ul class="nav nav-pills">
+                    <li class="active"><a href="#">Présentation de la team</a></li>
+					<li><a href="#">Historique des BPT</a></li>
+					<li><a href="#">Page contact recrutement</a></li>
+					<li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Jeux<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Star Citizen</a></li>
+							<li><a href="#">Arma 3</a></li>
+							<li><a href="#">World of tank</a></li>
+							<li><a href="#">Ark</a></li>
+							<li><a href="#">Project Zomboid</a></li>
+							<li><a href="#">Company of Heroes 2</a></li>
+							<li><a href="#">Wargame Red Dragon</a></li>
+							<li><a href="#">Supreme commander</a></li>
+							<li><a href="#">Autres</a></li>
 						</ul>
 					</li>
-					<li>Charte</li>
-					<li>Forum</li>
+					<li><a href="#">Charte</a></li>
+					<li><a href="#">Forum</a></li>
 				</ul>
 			</nav>
 
 			<section id="news">
 			</section>
 
-			<aside id="leftaside">
-				<div id="calendar">
-				</div>
-				<div id="forumposts">
-				</div>
-			</aside>
+            <div>
+                <div id="leftaside" class="col-md-3">
+                    <div class="panel panel-primary">
+                      <div class="panel-heading">Calendrier</div>
+                      <div class="panel-body">
+                        Panel content
+                      </div>
+                    </div>
 
-			<section id="content">
-			</section>
+                    <div class="panel panel-primary">
+                      <div class="panel-heading">Derniers posts</div>
+                      <div class="panel-body">
+                        Panel content
+                      </div>
+                    </div>
+                </div>
 
-			<aside id="rightaside">
-				<div id="ts3">
-                    <div id="ts3viewer_1069669" style="width:; background-color:;"> </div>
+               <section id="content" class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Présentation de la Team</div>
+                        <div class="panel-body">
+                            <p>Lorem ipsum dolor sit amet, ex nibh antiopam suavitate mea. Et melius tritani scribentur mei, qui an volumus noluisse persequeris. Quis inermis inimicus ea nam. At sale deleniti principes per, ut periculis similique consetetur cum.
+                            </p>
+                            <p>
+                                Ad vel prima illud inani, fabellas recusabo has ut. Per virtute posidonium ea. In fugit offendit quo, electram periculis ad mei, nec te saperet corpora. Id melius inciderint vix. An mel aeque graece, pri et oratio facilisis, nam ut amet phaedrum adipiscing. Meliore oportere cum ne, reque simul quo in.
+                            </p>
+                            <p>
+                                Vis at verear bonorum prodesset. Assentior maiestatis ius eu. Id per aperiri iracundia vituperata, duo ex doctus explicari persecuti. Duo modus dicunt nostrum te.
+                            </p>
+                            <p>
+                                Simul integre ea vel. Cibo nostrud mei ad, reque saperet scriptorem cu per. Te congue admodum vel, munere reformidans ei sed. Ius nulla quaeque fabellas ut. Debitis molestiae conceptam mel ne, vim et oblique accusam vivendum. Nibh alienum deseruisse ne has, nec quot omnis liber at, sit quodsi integre maiorum an.
+                            </p>
+                            <p>
+                                Ut est laudem possit, dicam graece convenire mea cu. Ei usu deleniti eleifend, stet inani qui no. Elitr aliquando adolescens id nec, ex congue doming eum. Deleniti officiis cu eum, duo et numquam legendos laboramus, mei commune sententiae at. Natum minim possim ea nec, sit ea malorum antiopam dignissim, te illud albucius est. Nobis dolore appareat an cum.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <div id="rightaside" class="col-md-3">
+                   <div class="panel panel-primary" id="panel-ts">
+                      <div class="panel-heading">Teamspeak 3</div>
+                      <div class="panel-body">
+                        <div id="ts3viewer_1069669" style="width:; background-color:;"> </div>
 
                         <script type="text/javascript" src="http://static.tsviewer.com/short_expire/js/ts3viewer_loader.js"></script>
 
                         <script type="text/javascript">
-                        <!--
-                        var ts3v_url_1 = "http://www.tsviewer.com/ts3viewer.php?ID=1069669&text=000000&text_size=12&text_family=1&js=1&text_s_weight=bold&text_s_style=normal&text_s_variant=normal&text_s_decoration=none&text_s_color_h=525284&text_s_weight_h=bold&text_s_style_h=normal&text_s_variant_h=normal&text_s_decoration_h=underline&text_i_weight=normal&text_i_style=normal&text_i_variant=normal&text_i_decoration=none&text_i_color_h=525284&text_i_weight_h=normal&text_i_style_h=normal&text_i_variant_h=normal&text_i_decoration_h=underline&text_c_weight=normal&text_c_style=normal&text_c_variant=normal&text_c_decoration=none&text_c_color_h=525284&text_c_weight_h=normal&text_c_style_h=normal&text_c_variant_h=normal&text_c_decoration_h=underline&text_u_weight=bold&text_u_style=normal&text_u_variant=normal&text_u_decoration=none&text_u_color_h=525284&text_u_weight_h=bold&text_u_style_h=normal&text_u_variant_h=normal&text_u_decoration_h=none";
-                        ts3v_display.init(ts3v_url_1, 1069669, 100);
-                        -->
+                            <!--
+                            var ts3v_url_1 = "http://www.tsviewer.com/ts3viewer.php?ID=1069669&text=000000&text_size=12&text_family=1&js=1&text_s_weight=bold&text_s_style=normal&text_s_variant=normal&text_s_decoration=none&text_s_color_h=525284&text_s_weight_h=bold&text_s_style_h=normal&text_s_variant_h=normal&text_s_decoration_h=underline&text_i_weight=normal&text_i_style=normal&text_i_variant=normal&text_i_decoration=none&text_i_color_h=525284&text_i_weight_h=normal&text_i_style_h=normal&text_i_variant_h=normal&text_i_decoration_h=underline&text_c_weight=normal&text_c_style=normal&text_c_variant=normal&text_c_decoration=none&text_c_color_h=525284&text_c_weight_h=normal&text_c_style_h=normal&text_c_variant_h=normal&text_c_decoration_h=underline&text_u_weight=bold&text_u_style=normal&text_u_variant=normal&text_u_decoration=none&text_u_color_h=525284&text_u_weight_h=bold&text_u_style_h=normal&text_u_variant_h=normal&text_u_decoration_h=none";
+                            ts3v_display.init(ts3v_url_1, 1069669, 100);
+                            -->
                         </script>
-				</div>
-				<div id="channels">
-				</div>
-				<div id="geoloc">
-				</div>
-			</aside>
+                      </div>
+                    </div>
 
+                    <div class="panel panel-primary">
+                      <div class="panel-heading">Les chaines video</div>
+                      <div class="panel-body">
+                        Panel content
+                      </div>
+                    </div>
+                    <div class="panel panel-primary">
+                      <div class="panel-heading">Localisation</div>
+                      <div class="panel-body">
+                        Panel content
+                      </div>
+                    </div>
+                </div>
+            </div>
 			<footer></footer>
 		</div>
+        <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
 	</body>
 
 </html>
