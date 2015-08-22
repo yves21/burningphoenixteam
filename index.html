@@ -11,22 +11,25 @@
 
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="lib/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
-		<link href="css/bpt.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="vendor/jquery-event-calendar/css/eventCalendar.css">
+        <link rel="stylesheet" href="vendor/jquery-event-calendar/css/eventCalendar_theme_responsive.css">
+		<link rel="stylesheet" href="css/bpt.css" >
+		<link rel="stylesheet" href="css/index.css" >
 		<link rel="stylesheet" media="screen and (max-device-width:1024px)" type="text/css" href="css/pc.css">
 		<link rel="stylesheet" media="screen and (max-device-width:400px)" type="text/css" href="css/mobile.css">
 	</head>
 	<body>
 		<div id="container" class="container-fluid">
 			<header>
-			    <img src="image/banniere.jpg" width="800" alt="Banner" />
+			    <img src="image/banniere.jpg" width="1200" alt="Banner" />
 			</header>
 
 			<nav>
 				<ul class="nav nav-pills">
-                    <li class="active"><a href="#">Présentation de la team</a></li>
+                    <li class="active"><a href="#">Actualités</a></li>
+                    <li><a href="#">Présentation de la team</a></li>
 					<li><a href="#">Historique des BPT</a></li>
 					<li><a href="#">Page contact recrutement</a></li>
 					<li class="dropdown">
@@ -56,7 +59,7 @@
                     <div class="panel panel-primary">
                       <div class="panel-heading">Calendrier</div>
                       <div class="panel-body">
-                        Panel content
+                        <div id="jq-calendar"></div>
                       </div>
                     </div>
 
@@ -125,6 +128,9 @@
 		</div>
         <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="vendor/jquery-event-calendar/js/moment.js" ></script>
+        <script type="text/javascript" src="vendor/jquery-event-calendar/js/jquery.eventCalendar.min.js" ></script>
+        <script type="text/javascript" src="js/bpt.js" ></script>
 	</body>
 
 </html>
