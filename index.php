@@ -1,3 +1,4 @@
+<?php define('BASE','./'); ?>
 <!doctype html>
 <html>
 	<!--[if lt IE 9]>
@@ -7,69 +8,23 @@
     <head>
 		<title>
 			burningphoenixteam.fr
-		</title>
+        </title>
 
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" >
-        <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.min.css">
+		<?php require "parts/meta-css.php"; ?>
         <link rel="stylesheet" href="lib/jQueryEventCalendar/css/eventCalendar.css">
         <link rel="stylesheet" href="lib/jQueryEventCalendar/css/eventCalendar_theme_responsive.css">
-		<link rel="stylesheet" href="css/bpt.css" >
-		<link rel="stylesheet" href="css/index.css" >
-		<link rel="stylesheet" media="screen and (max-device-width:1024px)" type="text/css" href="css/pc.css">
-		<link rel="stylesheet" media="screen and (max-device-width:400px)" type="text/css" href="css/mobile.css">
 	</head>
 	<body>
 		<div id="container" class="container-fluid">
-			<header>
-			    <img src="image/banniere.jpg" width="1200" alt="Banner" />
-			</header>
 
-			<nav>
-				<ul class="nav nav-pills">
-                    <li class="active"><a href="#">Actualités</a></li>
-                    <li><a href="#">Présentation de la team</a></li>
-					<li><a href="#">Historique des BPT</a></li>
-					<li><a href="#">Page contact recrutement</a></li>
-					<li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Jeux<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Star Citizen</a></li>
-							<li><a href="#">Arma 3</a></li>
-							<li><a href="#">World of tank</a></li>
-							<li><a href="#">Ark</a></li>
-							<li><a href="#">Project Zomboid</a></li>
-							<li><a href="#">Company of Heroes 2</a></li>
-							<li><a href="#">Wargame Red Dragon</a></li>
-							<li><a href="#">Supreme commander</a></li>
-							<li><a href="#">Autres</a></li>
-						</ul>
-					</li>
-					<li><a href="#">Charte</a></li>
-					<li><a href="http://forum.burningphoenixteam.fr/">Forum</a></li>
-				</ul>
-			</nav>
+            <?php require "parts/header.php"; ?>
 
 			<section id="news">
 			</section>
 
             <div>
-                <div id="leftaside" class="col-md-3">
-                    <div class="panel panel-primary">
-                      <div class="panel-heading">Calendrier</div>
-                      <div class="panel-body">
-                        <div id="jq-calendar"></div>
-                      </div>
-                    </div>
 
-                    <div class="panel panel-primary">
-                      <div class="panel-heading">Derniers posts</div>
-                      <div class="panel-body">
-                        <div id="jq-lastposts"></div>
-                      </div>
-                    </div>
-                </div>
+                <?php require "parts/leftaside.php"; ?>
 
                <section id="content" class="col-md-6">
                     <div class="panel panel-primary">
@@ -93,45 +48,15 @@
                     </div>
                 </section>
 
-                <div id="rightaside" class="col-md-3">
-                   <div class="panel panel-primary" id="panel-ts">
-                      <div class="panel-heading">Teamspeak 3</div>
-                      <div class="panel-body">
-                        <div id="ts3viewer_1069669" style="width:; background-color:;"> </div>
+                <?php require "parts/rightaside.php"; ?>
 
-                        <script type="text/javascript" src="http://static.tsviewer.com/short_expire/js/ts3viewer_loader.js"></script>
-
-                        <script type="text/javascript">
-                            <!--
-                            var ts3v_url_1 = "http://www.tsviewer.com/ts3viewer.php?ID=1069669&text=000000&text_size=12&text_family=1&js=1&text_s_weight=bold&text_s_style=normal&text_s_variant=normal&text_s_decoration=none&text_s_color_h=525284&text_s_weight_h=bold&text_s_style_h=normal&text_s_variant_h=normal&text_s_decoration_h=underline&text_i_weight=normal&text_i_style=normal&text_i_variant=normal&text_i_decoration=none&text_i_color_h=525284&text_i_weight_h=normal&text_i_style_h=normal&text_i_variant_h=normal&text_i_decoration_h=underline&text_c_weight=normal&text_c_style=normal&text_c_variant=normal&text_c_decoration=none&text_c_color_h=525284&text_c_weight_h=normal&text_c_style_h=normal&text_c_variant_h=normal&text_c_decoration_h=underline&text_u_weight=bold&text_u_style=normal&text_u_variant=normal&text_u_decoration=none&text_u_color_h=525284&text_u_weight_h=bold&text_u_style_h=normal&text_u_variant_h=normal&text_u_decoration_h=none";
-                            ts3v_display.init(ts3v_url_1, 1069669, 100);
-                            -->
-                        </script>
-                      </div>
-                    </div>
-
-                    <div class="panel panel-primary">
-                      <div class="panel-heading">Les chaines video</div>
-                      <div class="panel-body">
-                        Panel content
-                      </div>
-                    </div>
-                    <div class="panel panel-primary">
-                      <div class="panel-heading">Localisation</div>
-                      <div class="panel-body">
-                        Panel content
-                      </div>
-                    </div>
-                </div>
             </div>
-			<footer></footer>
+			 <?php require "parts/footer.php"; ?>
 		</div>
-        <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
-        <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <?php include "parts/js-script.php"; ?>
+        <script type="text/javascript" src="js/index.js" ></script>
         <script type="text/javascript" src="lib/jQueryEventCalendar/js/moment.js" ></script>
         <script type="text/javascript" src="lib/jQueryEventCalendar/js/jquery.eventCalendar.min.js" ></script>
-        <script type="text/javascript" src="lib/slick.js/slick/slick.min.js" ></script>
-        <script type="text/javascript" src="js/bpt.js" ></script>
 	</body>
 
 </html>

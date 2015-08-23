@@ -24,6 +24,17 @@ nav {
 }
 
 #jq-lastposts {
-    overflow: hidden;
+    overflow: scroll;
     height: 500px;
+}
+
+.posts-list div {
+    padding:5px;
+}
+
+footer {
+    clear:both;
+    line-height: 30px;
+    background-color: black;
+    color:white;
 }
