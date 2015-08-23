@@ -13,8 +13,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" >
         <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="vendor/jquery-event-calendar/css/eventCalendar.css">
-        <link rel="stylesheet" href="vendor/jquery-event-calendar/css/eventCalendar_theme_responsive.css">
+        <link rel="stylesheet" href="lib/jQueryEventCalendar/css/eventCalendar.css">
+        <link rel="stylesheet" href="lib/jQueryEventCalendar/css/eventCalendar_theme_responsive.css">
 		<link rel="stylesheet" href="css/bpt.css" >
 		<link rel="stylesheet" href="css/index.css" >
 		<link rel="stylesheet" media="screen and (max-device-width:1024px)" type="text/css" href="css/pc.css">
@@ -66,7 +66,7 @@
                     <div class="panel panel-primary">
                       <div class="panel-heading">Derniers posts</div>
                       <div class="panel-body">
-                        Panel content
+                        <div id="jq-lastposts"></div>
                       </div>
                     </div>
                 </div>
@@ -128,8 +128,9 @@
 		</div>
         <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="vendor/jquery-event-calendar/js/moment.js" ></script>
-        <script type="text/javascript" src="vendor/jquery-event-calendar/js/jquery.eventCalendar.min.js" ></script>
+        <script type="text/javascript" src="lib/jQueryEventCalendar/js/moment.js" ></script>
+        <script type="text/javascript" src="lib/jQueryEventCalendar/js/jquery.eventCalendar.min.js" ></script>
+        <script type="text/javascript" src="lib/slick.js/slick/slick.min.js" ></script>
         <script type="text/javascript" src="js/bpt.js" ></script>
 	</body>
 

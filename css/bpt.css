@@ -22,3 +22,8 @@ nav {
     height:400px;
     overflow: auto;
 }
+
+#jq-lastposts {
+    overflow: hidden;
+    height: 500px;
+}
