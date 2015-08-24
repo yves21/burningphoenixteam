@@ -21,7 +21,7 @@
                 <li><a href="#">Autres</a></li>
             </ul>
         </li>
-        <li><a href="#">Charte</a></li>
+        <li><a href="<?= BASE ?>charte.php">Charte</a></li>
         <li><a href="http://forum.burningphoenixteam.fr/">Forum</a></li>
     </ul>
 </nav>
