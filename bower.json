@@ -19,6 +19,7 @@
   "dependencies": {
     "jquery": "~2.1.4",
     "bootstrap": "~3.3.5",
-    "slick.js": "~1.5.8"
+    "slick.js": "~1.5.8",
+    "ckeditor": "~4.5.3"
   }
 }

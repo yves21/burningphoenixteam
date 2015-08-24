@@ -1,0 +1,9 @@
+form#createnews {
+    background-color: #DEA266;
+    margin:15px auto 15px auto;
+    padding:20px;
+    padding-right:50px;
+    border:3px solid black;
+    border-radius: 8px;
+    width:70%;
+}
