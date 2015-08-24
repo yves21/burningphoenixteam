@@ -24,7 +24,7 @@ RewriteRule .* - [F]
 RewriteCond %{HTTP_REFERER} !^$
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteCond %{REQUEST_FILENAME} \.(jpe?g?|png|gif|ico|pdf|flv|swf|gz)$ [NC]
-RewriteCond %{HTTP_REFERER} !^https?://([^.]+\.)?yourdomain\. [NC]
+RewriteCond %{HTTP_REFERER} !^https?://([^.]+\.)?burningphoenixteam\. [NC]
 RewriteRule \.(jpe?g?|png|gif|ico|pdf|flv|swf|gz)$ - [NC,F]
  
 # Only the following file extensions are allowed
