@@ -32,6 +32,35 @@ nav {
     padding:5px;
 }
 
+.newspanel {
+    background-color: #c0c0c0;
+}
+
+.newslist {
+    list-style-type: none;
+    padding: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top:10px;
+    text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+    font-family: verdana;
+}
+
+.newslist h2 {
+    font-size: 1.2em;
+}
+
+.newslist .slick-track {
+    height:300px;
+
+}
+
+.newslist .slick-slide {
+    background-size: 100% 100%;
+    padding:10px;
+    padding-top:180px;
+}
+
 footer {
     clear:both;
     line-height: 30px;

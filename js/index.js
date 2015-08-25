@@ -22,4 +22,19 @@ $(document).ready(function() {
 
     });
 
+    $('.newslist').slick({
+        autoplay: true,
+        autoplaySpeed: 5000,
+        dots: true,
+        infinite: true,
+        speed: 1000,
+        fade: true,
+        cssEase: 'linear'
+    });
+
+    $(".slick-list").click(function() {
+        var id = $(this).find(".slick-active").attr("id");
+        window.location.href="index.php?newsid=" + id;
+    });
+
 });
