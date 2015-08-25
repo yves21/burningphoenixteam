@@ -3,7 +3,7 @@
 </header>
 <nav>
     <ul class="nav nav-pills">
-        <li class="active"><a href="#">Actualités</a></li>
+        <li class="active"><a href="<?= BASE ?>index.php">Actualités</a></li>
         <li><a href="#">Présentation de la team</a></li>
         <li><a href="#">Historique des BPT</a></li>
         <li><a href="#">Page contact recrutement</a></li>
