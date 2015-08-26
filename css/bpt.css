@@ -36,7 +36,7 @@ nav {
     background-color: #c0c0c0;
 }
 
-.newslist {
+.newscaroussel {
     list-style-type: none;
     padding: 0px;
     margin-left: 10px;
@@ -46,20 +46,66 @@ nav {
     font-family: verdana;
 }
 
-.newslist h2 {
+.newscaroussel h2 {
     font-size: 1.2em;
 }
 
-.newslist .slick-track {
+.newscaroussel .slick-track {
     height:300px;
 
 }
 
-.newslist .slick-slide {
+.newscaroussel .slick-slide {
     background-size: 100% 100%;
     padding:10px;
     padding-top:180px;
 }
+
+.bptvideo {
+    max-width: 700px;
+    margin: auto;
+}
+
+.newslist {
+    list-style: none;
+    padding:0px;
+}
+
+.newslist li {
+    background-color:#c0c0c0;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding:5px;
+    margin:5px;
+    min-height: 210px;
+}
+
+.newslist .newspicture {
+    float:left;
+    padding:5px;
+}
+
+.newslist .newsdetail {
+    float:left;
+}
+
+.newslist h1 {
+    background-color: bisque;
+    border-radius: 8px;
+    margin:5px;
+    padding:5px;
+    font-size: 2em;
+    font-family: verdana;
+}
+
+.newslist h2 {
+    margin:3px;
+    padding:5px;
+    font-size: 1.5em;
+    font-family: verdana;
+}
+
+
 
 footer {
     clear:both;

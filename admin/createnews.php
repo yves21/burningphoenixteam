@@ -13,19 +13,57 @@ if (isset($_POST['bt_submit'])) {
     $prefixImageName = generateRandomString();
 
     // Where the file is going to be placed
-    $target_path = "../upload/";
+    $upload_path = "../upload/";
 
     $imageName = $prefixImageName.basename($_FILES['image']['name']);
 
-    $target_path = $target_path.$imageName;
+    $target_path = $upload_path.$imageName;
+    $target_path_mini = $upload_path."mini_".$imageName;
 
     if(move_uploaded_file($_FILES['image']['tmp_name'], $target_path)) {
         echo "The file ".  basename( $_FILES['image']['name']).
         " has been uploaded";
+       $info = pathinfo($target_path);
+       if ( strtolower($info['extension']) == 'jpg' ) {
+            $img = imagecreatefromjpeg( "{$target_path}" );
+            $width = imagesx( $img );
+            $height = imagesy( $img );
+
+            // calculate thumbnail size
+            $new_width = 200;
+            $new_height = floor( $height * ( 200 / $width ) );
+
+            // create a new temporary image
+            $tmp_img = imagecreatetruecolor( $new_width, $new_height );
+
+            // copy and resize old image into new image
+            imagecopyresized( $tmp_img, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
+
+            // save thumbnail into a file
+            imagejpeg( $tmp_img, "{$target_path_mini}" );
+        } else if ( strtolower($info['extension']) == 'png' ) {
+            $img = imagecreatefrompng( "{$target_path}" );
+            $width = imagesx( $img );
+            $height = imagesy( $img );
+
+            // calculate thumbnail size
+            $new_width = 200;
+            $new_height = floor( $height * ( 200 / $width ) );
+
+            // create a new temporary image
+            $tmp_img = imagecreatetruecolor( $new_width, $new_height );
+
+            // copy and resize old image into new image
+            imagecopyresized( $tmp_img, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
+
+            // save thumbnail into a file
+            imagepng( $tmp_img, "{$target_path_mini}" );
+       }
     } else{
         echo "There was an error uploading the file, please try again!";
     }
 
+    echo  "La date est : [".$_POST['created']."]";
     $stmt = $bdd->prepare('INSERT INTO news(subject, summary, content, image, created) VALUES (:subject, :summary, :content, :image, :created)');
     $stmt->bindParam(':subject', $_POST['subject']);
     $stmt->bindParam(':summary', $_POST['summary']);

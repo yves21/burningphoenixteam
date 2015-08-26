@@ -17,9 +17,11 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.1.4",
     "bootstrap": "~3.3.5",
+    "ckeditor": "~4.5.3",
+    "jquery": "~2.1.4",
+    "jQueryEventCalendar": "https://github.com/jaime8111/jQueryEventCalendar.git",
     "slick.js": "~1.5.8",
-    "ckeditor": "~4.5.3"
+    "webshim": "https://github.com/aFarkas/webshim.git#~1.15.8"
   }
 }

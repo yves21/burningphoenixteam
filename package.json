@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/yves21/burningphoenixteam/issues"
   },
-  "homepage": "https://github.com/yves21/burningphoenixteam#readme"
+  "homepage": "https://github.com/yves21/burningphoenixteam#readme",
+  "dependencies": {
+
+  }
 }

@@ -30,9 +30,21 @@
 
                <section id="content" class="col-md-6">
                     <div class="panel panel-primary">
-                        <div class="panel-heading">Actualités</div>
                         <div class="panel-body newspanel">
                            <?php require "parts/news.php"; ?>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-body bptvideo">
+                          <div style='position: relative; width: 100%; height: 0px; padding-bottom: 60%;'>
+                            <iframe style='position: absolute; left: 0px; top: 0px; width: 100%; height: 100%'  src="https://www.youtube.com/embed/zYMwwVrh0sI" frameborder="0" allowfullscreen></iframe>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Actualités</div>
+                        <div class="panel-body">
+                           <?php require "parts/news-list.php"; ?>
                         </div>
                     </div>
                 </section>

@@ -22,7 +22,7 @@ if (isset($_GET['newsid'])) {
      echo "</div>";
 
 } else {
-    echo "<div class=\"newslist\">";
+    echo "<div class=\"newscaroussel\">";
     $sql =  'SELECT id, subject, summary, image, created FROM news ORDER BY created desc';
     foreach  ($bdd->query($sql) as $row) {
         echo "<div style=\"background-image:url('".BASE."upload/".$row['image']."')\" id=\"".$row['id']."\">";
@@ -32,5 +32,3 @@ if (isset($_GET['newsid'])) {
     echo "</div>";
 }
 ?>
-
-
