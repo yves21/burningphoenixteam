@@ -1,0 +1,87 @@
+#panel-ts {
+    height:400px;
+    overflow: auto;
+}
+
+#jq-lastposts {
+    height: 500px;
+    overflow: scroll;
+}
+
+.posts-list div {
+    padding:5px;
+}
+
+.newspanel {
+    background-color: #c0c0c0;
+}
+
+.newscaroussel {
+    font-family: verdana;
+    list-style-type: none;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top:10px;
+    padding: 0;
+    text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+}
+
+.newscaroussel h2 {
+    font-size: 1.2em;
+}
+
+.newscaroussel .slick-track {
+    height:300px;
+}
+
+.newscaroussel .slick-slide {
+    background-size: 100% 100%;
+    padding:10px;
+    padding-top:180px;
+}
+
+.bptvideo {
+    margin: auto;
+    max-width: 700px;
+}
+
+.newslist {
+    list-style: none;
+    padding:0;
+}
+
+.newslist li {
+    background-color:#c0c0c0;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin:5px;
+    min-height: 210px;
+    overflow:hidden;
+    padding:5px;
+}
+
+.newslist .newspicture {
+    float:left;
+    padding:5px;
+}
+
+.newslist .newsdetail {
+    float:left;
+    max-width: 520px;
+}
+
+.newslist h1 {
+    background-color: bisque;
+    border-radius: 8px;
+    font-family: verdana;
+    font-size: 2em;
+    margin:5px;
+    padding:5px;
+}
+
+.newslist h2 {
+    font-family: verdana;
+    font-size: 1.5em;
+    margin:3px;
+    padding:5px;
+}

@@ -11,6 +11,7 @@
         </title>
 
 		<?php require "parts/meta-css.php"; ?>
+        <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" href="lib/jQueryEventCalendar/css/eventCalendar.css">
         <link rel="stylesheet" href="lib/jQueryEventCalendar/css/eventCalendar_theme_responsive.css">
         <link rel="stylesheet" type="text/css" href="lib/slick.js/slick/slick.css"/>
@@ -21,10 +22,7 @@
 
             <?php require "parts/header.php"; ?>
 
-			<section id="news">
-			</section>
-
-            <div>
+            <div class="row">
 
                 <?php require "parts/leftaside.php"; ?>
 
