@@ -21,6 +21,7 @@
     "ckeditor": "~4.5.3",
     "jquery": "~2.1.4",
     "jQueryEventCalendar": "https://github.com/jaime8111/jQueryEventCalendar.git",
+    "PHPAuth": "https://github.com/PHPAuth/PHPAuth.git",
     "slick.js": "~1.5.8",
     "webshim": "https://github.com/aFarkas/webshim.git#~1.15.8"
   }

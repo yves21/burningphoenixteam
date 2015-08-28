@@ -2,6 +2,23 @@
 
 require (BASE.'conf/utils.php');
 
+include(BASE."lib/PHPAuth/languages/fr.php");
+include(BASE."lib/PHPAuth/config.class.php");
+include(BASE."lib/PHPAuth/auth.class.php");
+
+$dbauth = new PDO("mysql:host=localhost;dbname=bptauth", "root", "");
+
+$config = new Config($dbauth);
+$auth = new Auth($dbauth, $config, $lang);
+
+if(!isset($_COOKIE[$config->cookie_name]) || !$auth->checkSession($_COOKIE[$config->cookie_name])) {
+    header('HTTP/1.0 403 Forbidden');
+    echo "Forbidden";
+
+    exit();
+}
+
+
 if (isset($_POST['bt_submit'])) {
     try {
         $bdd = new PDO ('mysql:host=localhost;dbname=bpt', 'root', '');
@@ -76,10 +93,6 @@ if (isset($_POST['bt_submit'])) {
 
 <!doctype html>
 <html>
-	<!--[if lt IE 9]>
-　　　　<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-    <![endif]-->
-
     <head>
 		<title>
 			burningphoenixteam.fr
