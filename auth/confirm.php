@@ -13,27 +13,3 @@ if($confirm['error']) {
 exit();
 
 ?>
-<!doctype html>
-<html>
-    <head>
-		<title>
-			burningphoenixteam.fr
-		</title>
-
-		<?php include (BASE."parts/meta-css.php"); ?>
-        <link rel="stylesheet" href="<?= BASE ?>css/auth.css" >
-	</head>
-	<body>
-		<div id="container" class="container-fluid">
-
-            <?php include (BASE."parts/header.php"); ?>
-
-            <div>
-
-            </div>
-			 <?php include (BASE."parts/footer.php"); ?>
-		</div>
-        <?php include (BASE."parts/js-script.php"); ?>
-	</body>
-
-</html>

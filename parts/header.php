@@ -25,9 +25,9 @@
         <li <?php if ($pagename=='charte.php') { echo "class=\"active\""; } ?>><a href="<?= BASE ?>charte.php">Charte</a></li>
         <li><a href="http://forum.burningphoenixteam.fr/">Forum</a></li>
         <li <?php if ($pagename=='admin.php') { echo "class=\"active\""; } ?>><a href="<?= BASE ?>admin/admin.php">Administration</a></li>
-        <?php if(isset($_COOKIE[$config->cookie_name]) && $auth->checkSession($_COOKIE[$config->cookie_name])) { ?>
+        <?php if(isset($user)) { ?>
             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">[email]<span class="caret"></span></a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?= $user['email'] ?><span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="<?= BASE ?>auth/logout.php">Logout</a></li>
                 </ul>

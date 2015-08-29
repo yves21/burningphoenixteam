@@ -3,15 +3,14 @@
 require(BASE."conf/auth-config.php");
 require(BASE."conf/BptAuthDao.class.php");
 
-if(!isset($_COOKIE[$config->cookie_name]) || !$auth->checkSession($_COOKIE[$config->cookie_name])) {
-    header('Location: http://localhost/burningphoenixteam/auth/login.php', TRUE, 302);
+if(!isset($user)) {
+    header('Location: '.BASE.'auth/login.php', TRUE, 302);
     exit();
 } else {
     $bptAuthDao = new BptAuthDao($dbauth);
-    $hasRoleUserManager = $bptAuthDao->hasRole($_COOKIE[$config->cookie_name], 'usermanager', $config);
-    if (!$hasRoleUserManager) {
+    if (!$bptAuthDao->hasRole($userid, 'usermanager')) {
         header('HTTP/1.0 403 Forbidden');
-        echo 'You don\'t have appropriate role to access this page !';
+        echo 'You don\'t have enough permissions to access this page !';
         exit();
     }
 }

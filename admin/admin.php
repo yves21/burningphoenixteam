@@ -2,8 +2,8 @@
 
 require(BASE."conf/auth-config.php");
 
-if(!isset($_COOKIE[$config->cookie_name]) || !$auth->checkSession($_COOKIE[$config->cookie_name])) {
-    header('Location: http://localhost/burningphoenixteam/auth/login.php', TRUE, 302);
+if(!isset($user)) {
+    header('Location: '.BASE.'auth/login.php', TRUE, 302);
     exit();
 }
 ?>
@@ -26,7 +26,7 @@ if(!isset($_COOKIE[$config->cookie_name]) || !$auth->checkSession($_COOKIE[$conf
             <div>
                 <ul>
                     <li><a href="<?= BASE ?>admin/createnews.php">Créer une news</a></li>
-                    <li><a href="#">TODO</a></li>
+                    <li><a href="<?= BASE ?>admin/usermanagement.php">User administration</a></li>
                     <li><a href="#">TODO</a></li>
                 </ul>
 

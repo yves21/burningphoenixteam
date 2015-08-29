@@ -17,17 +17,9 @@ class BptAuthDao
 		$this->bdd = $bdd;
 	}
 
-    public function hasRole($hash, $role, $config) {
-        $query = $this->bdd->prepare("SELECT uid FROM {$config->table_sessions} WHERE hash = ?");
-		$query->execute(array($hash));
-        if ($query->rowCount() == 0) {
-            return false;
-		}
-
-		$row = $query->fetch(PDO::FETCH_ASSOC);
-		$uid = $row['uid'];
+    public function hasRole($userid, $role) {
         $stmt = $this->bdd->prepare('select role from roles where user_id=?');
-        if ($stmt->execute(array($uid))) {
+        if ($stmt->execute(array($userid))) {
             while ($row = $stmt->fetch()) {
                 if ($row['role'] == $role) {
                     return true;
