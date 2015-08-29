@@ -1,0 +1,11 @@
+.info {
+    color: white;
+}
+.error {
+    background-color: white;
+    color:red;
+}
+.success {
+    background-color: white;
+    color:green;
+}

@@ -6,14 +6,6 @@ if (isset($_POST['bt_submit'])) {
 
     $register = $auth->register($_POST['email'], $_POST['password1'], $_POST['password2']);
 
-    if($register['error']) {
-        // Something went wrong, display error message
-        echo '<div class="error">' . $register['message'] . '</div>';
-    } else {
-        // Logged in successfully, display success message
-        echo '<div class="success">Success : ' . $register['message'] . '</div>';
-    }
-    exit();
 }
 ?>
 <!doctype html>
@@ -32,6 +24,7 @@ if (isset($_POST['bt_submit'])) {
             <?php include (BASE."parts/header.php"); ?>
 
             <div>
+                 <?php if (!isset($_POST['bt_submit']) || (isset($_POST['bt_submit']) && $register['error'])) { ?>
                  <form action="register.php" method="post" class="form-horizontal" name="register" id="register">
                     <fieldset id="fs_general">
                         <legend>Enregistrement</legend>
@@ -70,6 +63,18 @@ if (isset($_POST['bt_submit'])) {
                         </div>
                     </fieldset>
                 </form>
+                 <?php }
+
+                    if (isset($_POST['bt_submit'])) {
+                        if($register['error']) {
+                            // Something went wrong, display error message
+                            echo '<div class="error">' . $register['message'] . '</div>';
+                        } else {
+                            // Logged in successfully, display success message
+                            echo '<div class="success">' . $register['message'] . '</div>';
+                        }
+                    }
+                 ?>
             </div>
 			 <?php include (BASE."parts/footer.php"); ?>
 		</div>

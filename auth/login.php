@@ -50,7 +50,7 @@ if (isset($_POST['bt_submit'])) {
                         <div class="form-group">
                             <label class="col-sm-2 control-label" for="rememberme">Remember : </label>
                             <div class="col-sm-10">
-                                <input type="checkbox" class="form-control" name="rememberme" id="rememberme" />
+                                <input type="checkbox" name="rememberme" id="rememberme" />
                             </div>
                         </div>
                     </fieldset>
@@ -66,13 +66,15 @@ if (isset($_POST['bt_submit'])) {
                 </form>
                 <?php }
 
-                    if($login['error']) {
-                        // Something went wrong, display error message
-                        echo '<div class="error">' . $login['message'] . '</div>';
-                    } else {
-                        // Logged in successfully, set cookie, display success message
-                        setcookie($config->cookie_name, $login['hash'], $login['expire'], $config->cookie_path, $config->cookie_domain, $config->cookie_secure, $config->cookie_http);
-                        echo '<div class="success">' . $login['message'] . '</div>';
+                    if (isset($_POST['bt_submit'])) {
+                        if($login['error']) {
+                            // Something went wrong, display error message
+                            echo '<div class="error">' . $login['message'] . '</div>';
+                        } else {
+                            // Logged in successfully, set cookie, display success message
+                            setcookie($config->cookie_name, $login['hash'], $login['expire'], $config->cookie_path, $config->cookie_domain, $config->cookie_secure, $config->cookie_http);
+                            echo '<div class="success">' . $login['message'] . '</div>';
+                        }
                     }
                 ?>
                 <div class="info">Pas encore de compte ? <a href="<?= BASE ?>auth/register.php">cliquez ici</a> vous enregistrer.</div>
