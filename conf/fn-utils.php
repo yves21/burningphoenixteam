@@ -34,4 +34,11 @@ function createThumbnail($info, $target_path, $target_path_mini, $thumbWidth) {
    }
 }
 
+function getSafePostValue($value) {
+    if (isset($_POST[$value])) {
+        return $_POST[$value];
+    } else {
+        return "";
+    }
+}
 ?>

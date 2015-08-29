@@ -15,6 +15,20 @@ if(!isset($user)) {
     }
 }
 
+if (isset($_POST['bt_submit'])) {
+    if( is_array($_POST['userrole']) ) {
+        foreach($_POST['userrole'] as $userrole) {
+            $roletokens = explode("/", $userrole);
+            if ($roletokens[2] == 'unchecked') {
+                $bptAuthDao->removeRole(intval($roletokens[0]),$roletokens[1]);
+            } else if ($roletokens[2] == 'checked') {
+                $bptAuthDao->addRole(intval($roletokens[0]),$roletokens[1]);
+            }
+        }
+    } else {
+        echo $_POST['userrole'];
+    }
+}
 ?>
 
 <!doctype html>
@@ -34,18 +48,41 @@ if(!isset($user)) {
 
             <div>
                 <h1>User management</h1>
-                <ul>
-                    <?php
-                        $users = $bptAuthDao->getValidatedUsers($config);
-                        foreach ($users as $user) {
-                            echo "<li>".$user['email']."</li>";
-                        }
-                    ?>
-                </ul>
+                <form action="usermanagement.php" method="post" name="usermgmt" id="usermgmt">
+                    <ul>
+                        <?php
+                            $roles = $bptAuthDao->getRoles();
+                            $users = $bptAuthDao->getValidatedUsers($config);
+                            foreach ($users as $user) {
+                                echo "<li>";
+                                echo "<h2>".$user['email']."</h2>";
+                                foreach ($roles as $role) {
+                                    $checked = "";
+                                    if ($bptAuthDao->hasRole($user['id'], $role)) {
+                                        $checked="checked";
+                                    }
+                                    echo "<input type='checkbox' name='roles' value='".$user['id']."/".$role."' ".$checked."/> ".$role;
+                                    echo "<input type='hidden' name='userrole[]' value='' /><br />";
+                                }
+                                echo "</li>";
+                            }
+                        ?>
+                    </ul>
+                    <fieldset id="fs_buttons">
+                        <div class="form-group">
+                            <label class="control-label"></label>
+                            <div>
+                                <input type="reset" class="btn btn-warning" id="bt_reset" name="bt_reset" value="Reset" />
+                                <input type="submit" class="btn btn-primary" id="bt_submit" name="bt_submit" value="Send" />
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
 			 <?php include ("../parts/footer.php"); ?>
 		</div>
         <?php include ("../parts/js-script.php"); ?>
+        <script type="text/javascript" src="<?= BASE ?>js/usermgmt.js" ></script>
 	</body>
 
 </html>

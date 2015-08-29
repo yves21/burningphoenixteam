@@ -4,11 +4,18 @@ require(BASE."conf/fn-utils.php");
 require(BASE."conf/db-config.php");
 require(BASE."conf/BptDao.class.php");
 require(BASE."conf/auth-config.php");
+require(BASE."conf/BptAuthDao.class.php");
 
-if(!isset($_COOKIE[$config->cookie_name]) || !$auth->checkSession($_COOKIE[$config->cookie_name])) {
-    header('HTTP/1.0 403 Forbidden');
-    echo "Forbidden";
+if(!isset($user)) {
+    header('Location: '.BASE.'auth/login.php', TRUE, 302);
     exit();
+} else {
+    $bptAuthDao = new BptAuthDao($dbauth);
+    if (!$bptAuthDao->hasRole($userid, 'newsmanager')) {
+        header('HTTP/1.0 403 Forbidden');
+        echo 'You don\'t have enough permissions to access this page !';
+        exit();
+    }
 }
 
 if (isset($_POST['bt_submit'])) {

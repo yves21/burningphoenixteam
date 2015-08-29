@@ -1,5 +1,6 @@
 <?php define('BASE','../');
 
+require(BASE."conf/fn-utils.php");
 require(BASE."conf/auth-config.php");
 
 if (isset($_POST['bt_submit'])) {
@@ -38,13 +39,13 @@ if (isset($_POST['bt_submit'])) {
                         <div class="form-group">
                             <label class="col-sm-2 control-label" for="email">Email : </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="email" id="email" maxlength="120" placeholder="Votre email" />
+                                <input type="text" class="form-control" name="email" id="email" maxlength="120" placeholder="Votre email" value="<?= getSafePostValue('email') ?>" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label" for="password">Mot de passe : </label>
                             <div class="col-sm-10">
-                                <input type="password" class="form-control" name="password" id="password" maxlength="30" />
+                                <input type="password" class="form-control" name="password" id="password" maxlength="30" value="<?= getSafePostValue('password') ?>" />
                             </div>
                         </div>
                         <div class="form-group">

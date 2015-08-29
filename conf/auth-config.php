@@ -5,6 +5,7 @@ include(BASE."lib/PHPAuth/config.class.php");
 include(BASE."lib/PHPAuth/auth.class.php");
 
 $dbauth = new PDO("mysql:host=localhost;dbname=bptauth", "root", "");
+$dbauth->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $config = new Config($dbauth);
 $auth = new Auth($dbauth, $config, $lang);
