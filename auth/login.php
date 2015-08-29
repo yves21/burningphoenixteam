@@ -12,15 +12,6 @@ if (isset($_POST['bt_submit'])) {
 
     $login = $auth->login($_POST['email'], $_POST['password'], $rememberme);
 
-    if($login['error']) {
-        // Something went wrong, display error message
-        echo '<div class="error">' . $login['message'] . '</div>';
-    } else {
-        // Logged in successfully, set cookie, display success message
-       setcookie($config->cookie_name, $login['hash'], $login['expire'], $config->cookie_path, $config->cookie_domain, $config->cookie_secure, $config->cookie_http);
-        echo '<div class="success">' . $login['message'] . '</div>';
-    }
-    exit();
 }
 ?>
 <!doctype html>
@@ -39,6 +30,8 @@ if (isset($_POST['bt_submit'])) {
             <?php include (BASE."parts/header.php"); ?>
 
             <div>
+
+                <?php if (!isset($_POST['bt_submit']) || (isset($_POST['bt_submit']) && $login['error'])) { ?>
                  <form action="login.php" method="post" class="form-horizontal" name="login" id="login">
                     <fieldset id="fs_general">
                         <legend>Connexion</legend>
@@ -71,6 +64,18 @@ if (isset($_POST['bt_submit'])) {
                         </div>
                     </fieldset>
                 </form>
+                <?php }
+
+                    if($login['error']) {
+                        // Something went wrong, display error message
+                        echo '<div class="error">' . $login['message'] . '</div>';
+                    } else {
+                        // Logged in successfully, set cookie, display success message
+                        setcookie($config->cookie_name, $login['hash'], $login['expire'], $config->cookie_path, $config->cookie_domain, $config->cookie_secure, $config->cookie_http);
+                        echo '<div class="success">' . $login['message'] . '</div>';
+                    }
+                ?>
+                <div class="info">Pas encore de compte ? <a href="<?= BASE ?>auth/register.php">cliquez ici</a> vous enregistrer.</div>
             </div>
 			 <?php include (BASE."parts/footer.php"); ?>
 		</div>
