@@ -1,15 +1,8 @@
 <?php define('BASE','../');
 
-include(BASE."lib/PHPAuth/languages/fr.php");
-include(BASE."lib/PHPAuth/config.class.php");
-include(BASE."lib/PHPAuth/auth.class.php");
+require(BASE."conf/auth-config.php");
 
 if (isset($_POST['bt_submit'])) {
-
-    $dbauth = new PDO("mysql:host=localhost;dbname=bptauth", "root", "");
-
-    $config = new Config($dbauth);
-    $auth = new Auth($dbauth, $config, $lang);
 
     $register = $auth->register($_POST['email'], $_POST['password1'], $_POST['password2']);
 

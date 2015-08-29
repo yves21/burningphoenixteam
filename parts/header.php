@@ -5,9 +5,9 @@
 <nav>
     <ul class="nav nav-pills">
         <li <?php if ($pagename=='index.php') { echo "class=\"active\""; } ?>><a href="<?= BASE ?>index.php">Actualités</a></li>
-        <li <?php if ($pagename=='presentation.php') { echo "class=\"active\""; } ?>><a href="#">Présentation</a></li>
-        <li <?php if ($pagename=='historique.php') { echo "class=\"active\""; } ?>><a href="#">Historique</a></li>
-        <li <?php if ($pagename=='recrut.php') { echo "class=\"active\""; } ?>><a href="#">Recrutement</a></li>
+        <li <?php if ($pagename=='presentation.php') { echo "class=\"active\""; } ?>><a href="<?= BASE ?>presentation.php">Présentation</a></li>
+        <li <?php if ($pagename=='historique.php') { echo "class=\"active\""; } ?>><a href="<?= BASE ?>historique.php">Historique</a></li>
+        <li <?php if ($pagename=='recrut.php') { echo "class=\"active\""; } ?>><a href="<?= BASE ?>recrut.php">Recrutement</a></li>
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Jeux<span class="caret"></span></a>
             <ul class="dropdown-menu">

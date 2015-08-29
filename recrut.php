@@ -1,18 +1,4 @@
-<?php define('BASE','../');
-
-require(BASE."conf/auth-config.php");
-
-$confirm = $auth->activate($_GET['key']);
-
-if($confirm['error']) {
-    // Something went wrong, display error message
-    echo '<div class="error">' . $confirm['message'] . '</div>';
-} else {
-    echo '<div class="success">' . $confirm['message'] . '</div>';
-}
-exit();
-
-?>
+<?php define('BASE','./'); ?>
 <!doctype html>
 <html>
     <head>
@@ -21,7 +7,7 @@ exit();
 		</title>
 
 		<?php include (BASE."parts/meta-css.php"); ?>
-        <link rel="stylesheet" href="<?= BASE ?>css/auth.css" >
+        <link rel="stylesheet" href="<?= BASE ?>css/charte.css" >
 	</head>
 	<body>
 		<div id="container" class="container-fluid">
@@ -29,6 +15,9 @@ exit();
             <?php include (BASE."parts/header.php"); ?>
 
             <div>
+
+               <h1>Recrutement</h1>
+
 
             </div>
 			 <?php include (BASE."parts/footer.php"); ?>

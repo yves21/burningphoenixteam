@@ -1,4 +1,6 @@
-<?php define('BASE','./'); ?>
+<?php define('BASE','./');
+require(BASE."conf/db-config.php");
+?>
 <!doctype html>
 <html>
 

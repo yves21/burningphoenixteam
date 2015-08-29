@@ -1,17 +1,5 @@
 <?php
 
-try {
-    $bdd = new PDO ('mysql:host=localhost;dbname=bpt', 'root', '');
-    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(Exception $e) {
-    die('Erreur : '.$e->getMessage());
-}
-?>
-
-
-
-<?php
-
 echo "<ul class=\"newslist\">";
 $sql =  'SELECT id, subject, summary, image, created FROM news ORDER BY created desc';
 foreach  ($bdd->query($sql) as $row) {

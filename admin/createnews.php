@@ -1,93 +1,33 @@
 <?php define('BASE','../');
 
-require (BASE.'conf/utils.php');
-
-include(BASE."lib/PHPAuth/languages/fr.php");
-include(BASE."lib/PHPAuth/config.class.php");
-include(BASE."lib/PHPAuth/auth.class.php");
-
-$dbauth = new PDO("mysql:host=localhost;dbname=bptauth", "root", "");
-
-$config = new Config($dbauth);
-$auth = new Auth($dbauth, $config, $lang);
+require(BASE."conf/fn-utils.php");
+require(BASE."conf/db-config.php");
+require(BASE."conf/BptDao.class.php");
+require(BASE."conf/auth-config.php");
 
 if(!isset($_COOKIE[$config->cookie_name]) || !$auth->checkSession($_COOKIE[$config->cookie_name])) {
     header('HTTP/1.0 403 Forbidden');
     echo "Forbidden";
-
     exit();
 }
 
-
 if (isset($_POST['bt_submit'])) {
-    try {
-        $bdd = new PDO ('mysql:host=localhost;dbname=bpt', 'root', '');
-        $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch(Exception $e) {
-        die('Erreur : '.$e->getMessage());
-    }
 
     $prefixImageName = generateRandomString();
-
-    // Where the file is going to be placed
     $upload_path = "../upload/";
-
     $imageName = $prefixImageName.basename($_FILES['image']['name']);
-
     $target_path = $upload_path.$imageName;
     $target_path_mini = $upload_path."mini_".$imageName;
 
     if(move_uploaded_file($_FILES['image']['tmp_name'], $target_path)) {
-        echo "The file ".  basename( $_FILES['image']['name']).
-        " has been uploaded";
+       echo "The file ".  basename( $_FILES['image']['name'])." has been uploaded\n";
        $info = pathinfo($target_path);
-       if ( strtolower($info['extension']) == 'jpg' ) {
-            $img = imagecreatefromjpeg( "{$target_path}" );
-            $width = imagesx( $img );
-            $height = imagesy( $img );
-
-            // calculate thumbnail size
-            $new_width = 200;
-            $new_height = floor( $height * ( 200 / $width ) );
-
-            // create a new temporary image
-            $tmp_img = imagecreatetruecolor( $new_width, $new_height );
-
-            // copy and resize old image into new image
-            imagecopyresized( $tmp_img, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
-
-            // save thumbnail into a file
-            imagejpeg( $tmp_img, "{$target_path_mini}" );
-        } else if ( strtolower($info['extension']) == 'png' ) {
-            $img = imagecreatefrompng( "{$target_path}" );
-            $width = imagesx( $img );
-            $height = imagesy( $img );
-
-            // calculate thumbnail size
-            $new_width = 200;
-            $new_height = floor( $height * ( 200 / $width ) );
-
-            // create a new temporary image
-            $tmp_img = imagecreatetruecolor( $new_width, $new_height );
-
-            // copy and resize old image into new image
-            imagecopyresized( $tmp_img, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
-
-            // save thumbnail into a file
-            imagepng( $tmp_img, "{$target_path_mini}" );
-       }
+       createThumbnail($info, $target_path, $target_path_mini, 200);
     } else{
         echo "There was an error uploading the file, please try again!";
     }
-
-    echo  "La date est : [".$_POST['created']."]";
-    $stmt = $bdd->prepare('INSERT INTO news(subject, summary, content, image, created) VALUES (:subject, :summary, :content, :image, :created)');
-    $stmt->bindParam(':subject', $_POST['subject']);
-    $stmt->bindParam(':summary', $_POST['summary']);
-    $stmt->bindParam(':content', htmlspecialchars($_POST['content']));
-    $stmt->bindParam(':image',  $imageName);
-    $stmt->bindParam(':created', $_POST['created']);
-    $stmt->execute();
+    $bptDao = new BptDao($bdd);
+    $bptDao->insertNews($_POST['subject'], $_POST['summary'], $_POST['content'], $imageName, $_POST['created']);
 }
 ?>
 
