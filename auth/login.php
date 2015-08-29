@@ -4,7 +4,13 @@ require(BASE."conf/auth-config.php");
 
 if (isset($_POST['bt_submit'])) {
 
-    $login = $auth->login($_POST['email'], $_POST['password'], $_POST['rememberme']);
+    if (isset($_POST['rememberme'])) {
+        $rememberme = $_POST['rememberme'];
+    } else {
+        $rememberme = false;
+    }
+
+    $login = $auth->login($_POST['email'], $_POST['password'], $rememberme);
 
     if($login['error']) {
         // Something went wrong, display error message
