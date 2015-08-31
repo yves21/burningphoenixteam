@@ -1,14 +1,14 @@
 <?php define('BASE','../');
 
 require(BASE."conf/auth-config.php");
-require(BASE."conf/BptAuthDao.class.php");
+require(BASE."conf/BptDao.class.php");
 
 if(!isset($user)) {
     header('Location: '.BASE.'auth/login.php', TRUE, 302);
     exit();
 } else {
-    $bptAuthDao = new BptAuthDao($dbauth);
-    if (!$bptAuthDao->hasRole($userid, 'usermanager')) {
+    $bptDao = new BptDao($dbauth);
+    if (!$bptDao->hasRole($userid, 'usermanager')) {
         header('HTTP/1.0 403 Forbidden');
         echo 'You don\'t have enough permissions to access this page !';
         exit();
@@ -20,9 +20,9 @@ if (isset($_POST['bt_submit'])) {
         foreach($_POST['userrole'] as $userrole) {
             $roletokens = explode("/", $userrole);
             if ($roletokens[2] == 'unchecked') {
-                $bptAuthDao->removeRole(intval($roletokens[0]),$roletokens[1]);
+                $bptDao->removeRole(intval($roletokens[0]),$roletokens[1]);
             } else if ($roletokens[2] == 'checked') {
-                $bptAuthDao->addRole(intval($roletokens[0]),$roletokens[1]);
+                $bptDao->addRole(intval($roletokens[0]),$roletokens[1]);
             }
         }
     } else {
@@ -51,17 +51,17 @@ if (isset($_POST['bt_submit'])) {
                 <form action="usermanagement.php" method="post" name="usermgmt" id="usermgmt">
                     <ul>
                         <?php
-                            $roles = $bptAuthDao->getRoles();
-                            $users = $bptAuthDao->getValidatedUsers($config);
+                            $roles = $bptDao->getRoles();
+                            $users = $bptDao->getValidatedUsers($config);
                             foreach ($users as $user) {
                                 echo "<li>";
                                 echo "<h2>".$user['email']."</h2>";
                                 foreach ($roles as $role) {
                                     $checked = "";
-                                    if ($bptAuthDao->hasRole($user['id'], $role)) {
+                                    if ($bptDao->hasRole($user['id'], $role['role'])) {
                                         $checked="checked";
                                     }
-                                    echo "<input type='checkbox' name='roles' value='".$user['id']."/".$role."' ".$checked."/> ".$role;
+                                    echo "<input type='checkbox' name='roles' value='".$user['id']."/".$role['role']."' ".$checked."/> ".$role['role'];
                                     echo "<input type='hidden' name='userrole[]' value='' /><br />";
                                 }
                                 echo "</li>";

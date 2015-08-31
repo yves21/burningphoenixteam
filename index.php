@@ -1,5 +1,4 @@
 <?php define('BASE','./');
-require(BASE."conf/db-config.php");
 require(BASE."conf/auth-config.php");
 ?>
 <!doctype html>

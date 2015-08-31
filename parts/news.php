@@ -1,7 +1,7 @@
 <?php
 if (isset($_GET['newsid'])) {
     echo "<div class=\"newscontent\">";
-    $stmt = $bdd->prepare('SELECT content FROM news WHERE id=? ORDER BY created desc');
+    $stmt = $dbauth->prepare('SELECT content FROM news WHERE id=? ORDER BY created desc');
     if ($stmt->execute(array($_GET['newsid']))) {
         while ($row = $stmt->fetch()) {
             echo html_entity_decode($row['content']);
@@ -12,7 +12,7 @@ if (isset($_GET['newsid'])) {
 } else {
     echo "<div class=\"newscaroussel\">";
     $sql =  'SELECT id, subject, summary, image, created FROM news ORDER BY created desc';
-    foreach  ($bdd->query($sql) as $row) {
+    foreach  ($dbauth->query($sql) as $row) {
         echo "<div style=\"background-image:url('".BASE."upload/".$row['image']."')\" id=\"".$row['id']."\">";
         echo "<h1>".$row['subject']."</h1><h2>".$row['summary']."</h2>";
         echo "</div>";

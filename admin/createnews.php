@@ -1,17 +1,15 @@
 <?php define('BASE','../');
 
 require(BASE."conf/fn-utils.php");
-require(BASE."conf/db-config.php");
 require(BASE."conf/BptDao.class.php");
 require(BASE."conf/auth-config.php");
-require(BASE."conf/BptAuthDao.class.php");
 
 if(!isset($user)) {
     header('Location: '.BASE.'auth/login.php', TRUE, 302);
     exit();
 } else {
-    $bptAuthDao = new BptAuthDao($dbauth);
-    if (!$bptAuthDao->hasRole($userid, 'newsmanager')) {
+    $bptDao = new BptDao($dbauth);
+    if (!$bptDao->hasRole($userid, 'newsmanager')) {
         header('HTTP/1.0 403 Forbidden');
         echo 'You don\'t have enough permissions to access this page !';
         exit();
@@ -33,7 +31,6 @@ if (isset($_POST['bt_submit'])) {
     } else{
         echo "There was an error uploading the file, please try again!";
     }
-    $bptDao = new BptDao($bdd);
     $bptDao->insertNews($_POST['subject'], $_POST['summary'], $_POST['content'], $imageName, $_POST['created']);
 }
 ?>
