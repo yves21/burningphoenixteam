@@ -18,7 +18,7 @@
   ],
   "dependencies": {
     "bootstrap": "~3.3.5",
-    "ckeditor": "~4.5.3",
+    "ckeditor": "#full/latest",
     "jquery": "~2.1.4",
     "jQueryEventCalendar": "https://github.com/jaime8111/jQueryEventCalendar.git",
     "PHPAuth": "https://github.com/PHPAuth/PHPAuth.git",

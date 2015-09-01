@@ -1,13 +1,11 @@
 <?php define('BASE','../');
 
 require(BASE."conf/auth-config.php");
-require(BASE."conf/BptDao.class.php");
 
 if(!isset($user)) {
     header('Location: '.BASE.'auth/login.php', TRUE, 302);
     exit();
 } else {
-    $bptDao = new BptDao($dbauth);
     if (!$bptDao->hasRole($userid, 'usermanager')) {
         header('HTTP/1.0 403 Forbidden');
         echo 'You don\'t have enough permissions to access this page !';

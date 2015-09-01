@@ -1,6 +1,6 @@
 <div id="rightaside" class="col-md-3">
    <div class="panel panel-primary" id="panel-ts">
-      <div class="panel-heading">Teamspeak 3</div>
+      <div class="panel-heading"><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> Teamspeak 3</div>
       <div class="panel-body">
         <div id="ts3viewer_1069669" style="width:; background-color:;"> </div>
 
@@ -16,13 +16,24 @@
     </div>
 
     <div class="panel panel-primary">
-      <div class="panel-heading">Les chaines video</div>
+      <div class="panel-heading"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Les chaines video</div>
       <div class="panel-body">
-        Panel content
+        <ul>
+            <li><a href="https://www.youtube.com/user/GuigEspritDuSage/videos">Youtube GuigEspritDuSage</a></li>
+            <li><a href="http://www.twitch.tv/guig_esprit_du_sage">Twitch GuigEspritDuSage</a></li>
+            <li><a href="http://www.twitch.tv/thomasfreddy56">FAT_Joe "Freddy"</a></li>
+            <li><a href="https://youtu.be/mHVNggpUT0g">Mathew</a></li>
+            <li><a href="https://www.youtube.com/channel/UCnuYKZKb-LFy7SXYDQiDeMQ">Kebooz</a></li>
+            <li><a href="https://www.youtube.com/channel/UCtOqRXhQ9Alej12qfAlXL2A">Stef</a></li>
+            <li><a href="https://www.youtube.com/channel/UCGDc6uF8qRq1e9LS1cTayiA">Luxun</a></li>
+            <li><a href="http://www.twitch.tv/drangonlee">Dragon lee</a></li>
+            <li><a href="https://www.youtube.com/channel/UClXMqXtP-rs6eDXNqrRw4Vw">Freyr</a></li>
+
+        </ul>
       </div>
     </div>
     <div class="panel panel-primary">
-      <div class="panel-heading">Localisation</div>
+      <div class="panel-heading"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Localisation</div>
       <div class="panel-body">
         Panel content
       </div>

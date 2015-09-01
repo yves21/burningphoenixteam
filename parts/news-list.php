@@ -1,15 +1,15 @@
 <?php
 
 echo "<ul class=\"newslist\">";
-$sql =  'SELECT id, subject, summary, image, created FROM news ORDER BY created desc';
-foreach  ($dbauth->query($sql) as $row) {
+$allnews = $bptDao->getAllNews(10);
+foreach  ($allnews as $newsitem) {
     echo "<li>";
     echo "<div class=\"newspicture\">";
-    echo "<a href=\"index.php?newsid=".$row['id']."\"><img src=\"".BASE."upload/mini_".$row['image']."\" /></a>";
+    echo "<a href=\"index.php?newsid=".$newsitem['id']."\"><img src=\"".BASE."upload/mini_".$newsitem['image']."\" /></a>";
     echo "</div>";
     echo "<div class=\"newsdetail\">";
-    echo "<h1>".$row['subject']."</h1><h2>".$row['summary']."</h2>";
-    echo $row['created'];
+    echo "<h1>".$newsitem['subject']."</h1><h2>".$newsitem['summary']."</h2>";
+    echo $newsitem['created'];
     echo "</div>";
     echo "</li>";
 }

@@ -39,7 +39,7 @@ require(BASE."conf/auth-config.php");
                         </div>
                     </div>
                     <div class="panel panel-primary">
-                        <div class="panel-heading">Actualités</div>
+                        <div class="panel-heading"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Actualités</div>
                         <div class="panel-body">
                            <?php require "parts/news-list.php"; ?>
                         </div>

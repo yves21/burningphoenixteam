@@ -25,7 +25,7 @@ if(!isset($user)) {
 
             <div>
                 <ul>
-                    <li><a href="<?= BASE ?>admin/createnews.php">Créer une news</a></li>
+                    <li><a href="<?= BASE ?>admin/newsmanagement.php">Gestion des news</a></li>
                     <li><a href="<?= BASE ?>admin/usermanagement.php">User administration</a></li>
                     <li><a href="<?= BASE ?>admin/gamemanagement.php">Gestion des jeux</a></li>
                 </ul>

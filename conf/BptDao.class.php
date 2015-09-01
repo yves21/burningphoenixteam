@@ -17,13 +17,20 @@ class BptDao
 		$this->bdd = $bdd;
 	}
 
-    public function insertNews($subject, $summary, $content, $imageName, $created) {
+    public function insertNews($subject, $summary, $content, $imageName) {
         $stmt = $this->bdd->prepare('INSERT INTO news(subject, summary, content, image, created) VALUES (:subject, :summary, :content, :image, :created)');
         $stmt->bindParam(':subject', $subject);
         $stmt->bindParam(':summary', $summary);
         $stmt->bindParam(':content', htmlspecialchars($content));
         $stmt->bindParam(':image',  $imageName);
-        $stmt->bindParam(':created', $created);
+        $stmt->bindParam(':created', date());
+        $stmt->execute();
+    }
+
+     public function updateNews($newsid, $content) {
+        $stmt = $this->bdd->prepare('UPDATE news set content=:content WHERE id=:newsid');
+        $stmt->bindParam(':content', htmlspecialchars($content));
+        $stmt->bindParam(':newsid',  $newsid);
         $stmt->execute();
     }
 
@@ -77,6 +84,30 @@ class BptDao
             }
         }
         return $results;
+    }
+
+     public function getAllNews($limit) {
+        $index = 1;
+        $results = array();
+        $stmt = $this->bdd->prepare("SELECT id, subject, summary, image, created FROM news ORDER BY created desc");
+        $stmt->execute();
+        if ($stmt->execute()) {
+            while ($row = $stmt->fetch()) {
+                $results[] = $row;
+                if (++$index > $limit) {
+                    break;
+                }
+            }
+        }
+        return $results;
+    }
+
+     public function getNewsById($newsid) {
+        $stmt = $this->bdd->prepare("SELECT id, subject, summary, content, image, created FROM news WHERE id=?");
+        $stmt->execute(array($newsid));
+        if ($stmt->execute()) {
+            return $stmt->fetch();
+        }
     }
 
     public function getGame($gameid) {

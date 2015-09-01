@@ -85,3 +85,17 @@
     margin:3px;
     padding:5px;
 }
+
+.panel-primary {
+    border-color: #666;
+}
+
+.panel-primary>.panel-heading {
+    background-color: black;
+    background-image: -webkit-linear-gradient(top,#000 0,#90580b 100%);
+    background-image: -o-linear-gradient(top,#000 0,#90580b 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#000),to(#90580b));
+    background-image: linear-gradient(to bottom,#000 0,#90580b 100%);
+
+}
+

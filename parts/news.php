@@ -1,20 +1,16 @@
 <?php
 if (isset($_GET['newsid'])) {
     echo "<div class=\"newscontent\">";
-    $stmt = $dbauth->prepare('SELECT content FROM news WHERE id=? ORDER BY created desc');
-    if ($stmt->execute(array($_GET['newsid']))) {
-        while ($row = $stmt->fetch()) {
-            echo html_entity_decode($row['content']);
-        }
-    }
-     echo "</div>";
+    $newsfullscreen = $bptDao->getNewsById($_GET['newsid']);
+    echo html_entity_decode($newsfullscreen['content']);
+    echo "</div>";
 
 } else {
     echo "<div class=\"newscaroussel\">";
-    $sql =  'SELECT id, subject, summary, image, created FROM news ORDER BY created desc';
-    foreach  ($dbauth->query($sql) as $row) {
-        echo "<div style=\"background-image:url('".BASE."upload/".$row['image']."')\" id=\"".$row['id']."\">";
-        echo "<h1>".$row['subject']."</h1><h2>".$row['summary']."</h2>";
+    $newslist =  $bptDao->getAllNews(5);
+    foreach  ($newslist as $newscaroussel) {
+        echo "<div style=\"background-image:url('".BASE."upload/".$newscaroussel['image']."')\" id=\"".$newscaroussel['id']."\">";
+        echo "<h1>".$newscaroussel['subject']."</h1><h2>".$newscaroussel['summary']."</h2>";
         echo "</div>";
     }
     echo "</div>";
