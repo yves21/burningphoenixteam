@@ -124,7 +124,7 @@ define('COMPOSER_OPTIONS', '--no-dev');
  * @var string Path to the COMPOSER_HOME e.g. `/tmp/composer`
  * @link https://getcomposer.org/doc/03-cli.md#composer-home
  */
-define('COMPOSER_HOME', false);
+define('COMPOSER_HOME', true);
 /**
  * OPTIONAL
  * Email address to be notified on deployment failure.
