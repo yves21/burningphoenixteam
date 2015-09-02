@@ -78,7 +78,7 @@ define('TMP_DIR', '/opt/lampp/temp/spgd-'.md5(REMOTE_REPOSITORY).'/');
  * It's useful NOT to clean up in order to only fetch changes on the next
  * deployment.
  */
-define('CLEAN_UP', true);
+define('CLEAN_UP', false);
 /**
  * Output the version of the deployed code.
  *
