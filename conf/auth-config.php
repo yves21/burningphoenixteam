@@ -5,7 +5,7 @@ require(BASE."lib/PHPAuth/config.class.php");
 require(BASE."lib/PHPAuth/auth.class.php");
 require(BASE."conf/BptDao.class.php");
 
-$dbauth = new PDO("mysql:host=localhost;dbname=bpt", "root", "");
+$dbauth = new PDO("mysql:host=localhost;dbname=bpt", "root", "UeyK7b45");
 $dbauth->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $config = new Config($dbauth);
