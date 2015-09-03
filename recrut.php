@@ -20,7 +20,7 @@ require(BASE."conf/auth-config.php");
 
                <h1>Recrutement</h1>
 
-
+               <h2>Test</h2>
             </div>
 			 <?php include (BASE."parts/footer.php"); ?>
 		</div>
