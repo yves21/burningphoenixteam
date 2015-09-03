@@ -1,8 +1,5 @@
 <?php
 
-echo "<div>"
-echo "</div>"
-
 echo "<ul class=\"newslist\">";
 $allnews = $bptDao->getAllNews(5);
 foreach  ($allnews as $newsitem) {
