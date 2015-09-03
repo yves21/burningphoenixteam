@@ -31,7 +31,7 @@ require(BASE."conf/auth-config.php");
                            <?php require "parts/news.php"; ?>
                         </div>
                     </div>
-                    <div class="panel panel-primary">
+                    <div class="panel panel-primary panel-video">
                         <div class="panel-body bptvideo">
                           <div style='position: relative; width: 100%; height: 0px; padding-bottom: 60%;'>
                             <iframe style='position: absolute; left: 0px; top: 0px; width: 100%; height: 100%'  src="https://www.youtube.com/embed/zYMwwVrh0sI" frameborder="0" allowfullscreen></iframe>
@@ -40,7 +40,7 @@ require(BASE."conf/auth-config.php");
                     </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Actualités</div>
-                        <div class="panel-body">
+                        <div class="panel-body panel-news">
                            <?php require "parts/news-list.php"; ?>
                         </div>
                     </div>

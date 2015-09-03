@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <div class="panel panel-primary">
+    <div class="panel panel-primary panel-youtube">
       <div class="panel-heading"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Les chaines video</div>
       <div class="panel-body">
         <ul>
