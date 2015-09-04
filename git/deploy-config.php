@@ -52,7 +52,7 @@ define('TARGET_DIR', '/opt/lampp/htdocs/burningphoenixteam');
  *
  * @var boolean
  */
-define('DELETE_FILES', true);
+define('DELETE_FILES', false);
 /**
  * The directories and files that are to be excluded when updating the code.
  * Normally, these are the directories containing files that are not part of
