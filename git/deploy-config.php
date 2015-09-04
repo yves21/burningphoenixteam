@@ -78,7 +78,7 @@ define('TMP_DIR', '/opt/lampp/temp/spgd-'.md5(REMOTE_REPOSITORY).'/');
  * It's useful NOT to clean up in order to only fetch changes on the next
  * deployment.
  */
-define('CLEAN_UP', false);
+define('CLEAN_UP', true);
 /**
  * Output the version of the deployed code.
  *
@@ -107,7 +107,7 @@ define('BACKUP_DIR', false);
  * @var boolean Whether to use composer or not
  * @link http://getcomposer.org/
  */
-define('USE_COMPOSER', true);
+define('USE_COMPOSER', false);
 /**
  * OPTIONAL
  * The options that the composer is going to use.
@@ -124,7 +124,7 @@ define('COMPOSER_OPTIONS', '--no-dev');
  * @var string Path to the COMPOSER_HOME e.g. `/tmp/composer`
  * @link https://getcomposer.org/doc/03-cli.md#composer-home
  */
-define('COMPOSER_HOME', '/root');
+define('COMPOSER_HOME', false);
 /**
  * OPTIONAL
  * Email address to be notified on deployment failure.
