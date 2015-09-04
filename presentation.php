@@ -9,7 +9,7 @@ require(BASE."conf/auth-config.php");
 		</title>
 
 		<?php include (BASE."parts/meta-css.php"); ?>
-        <link rel="stylesheet" href="<?= BASE ?>css/charte.css" >
+        <!--<link rel="stylesheet" href="<?= BASE ?>css/charte.css" >-->
 	</head>
 	<body>
 		<div id="container" class="container-fluid">

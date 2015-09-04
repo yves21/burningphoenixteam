@@ -16,7 +16,7 @@ if(!isset($user)) {
 		</title>
 
 		<?php include ("../parts/meta-css.php"); ?>
-        <link rel="stylesheet" href="<?= BASE ?>css/admin.css" >
+        <!--<link rel="stylesheet" href="<?= BASE ?>css/admin.css" >-->
 	</head>
 	<body>
 		<div id="container" class="container-fluid">

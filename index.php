@@ -10,27 +10,39 @@ require(BASE."conf/auth-config.php");
         </title>
 
 		<?php require "parts/meta-css.php"; ?>
-        <link rel="stylesheet" href="css/index.css">
+        <!--<link rel="stylesheet" href="css/index.css">-->
         <link rel="stylesheet" href="lib/jQueryEventCalendar/css/eventCalendar.css">
         <link rel="stylesheet" href="lib/jQueryEventCalendar/css/eventCalendar_theme_responsive.css">
         <link rel="stylesheet" type="text/css" href="lib/slick.js/slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="lib/slick.js/slick/slick-theme.css"/>
 	</head>
-	<body>
-		<div id="container" class="container-fluid">
 
+    <body>
+        <div id="container" class="container-fluid">
+
+            <!--Header-->
             <?php require "parts/header.php"; ?>
 
-            <div class="row">
-
-                <?php require "parts/leftaside.php"; ?>
-
-               <section id="content" class="col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-body newspanel">
+            <!--Caroussel-->
+            <div class="row row-content">
+                <!--Bloc panel-->
+                <section id="content" class="col-md-6">
+                    <div class="panel panel-primary panel-main">
+                        <div class="panel-body">
                            <?php require "parts/news.php"; ?>
                         </div>
                     </div>
+                </section>
+            </div>
+
+            <!--Video, Actu-->
+            <div class="row row-content general-panel">
+
+                <!--Bloc de gauche-->
+                <?php require "parts/leftaside.php"; ?>
+
+                <!--Bloc central-->
+                <section id="content" class="col-md-5">
                     <div class="panel panel-primary panel-video">
                         <div class="panel-body bptvideo">
                           <div style='position: relative; width: 100%; height: 0px; padding-bottom: 60%;'>
@@ -46,16 +58,19 @@ require(BASE."conf/auth-config.php");
                     </div>
                 </section>
 
-                <?php require "parts/rightaside.php"; ?>
 
+                <!--Bloc de droite-->
+                <?php require "parts/rightaside.php"; ?>
             </div>
-			 <?php require "parts/footer.php"; ?>
-		</div>
+
+            <!--FOOTER-->
+            <?php require "parts/footer.php"; ?>
+        </div>
+
         <?php include "parts/js-script.php"; ?>
         <script type="text/javascript" src="js/index.js" ></script>
         <script type="text/javascript" src="lib/jQueryEventCalendar/js/moment.js" ></script>
         <script type="text/javascript" src="lib/jQueryEventCalendar/js/jquery.eventCalendar.min.js" ></script>
         <script type="text/javascript" src="lib/slick.js/slick/slick.min.js"></script>
-	</body>
-
+    </body>
 </html>
