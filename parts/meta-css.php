@@ -4,3 +4,4 @@
 <link rel="stylesheet" href="<?= BASE ?>lib/bootstrap/dist/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="<?= BASE ?>css/style.css">
 <!--<link rel="stylesheet" href="<?= BASE ?>css/bpt.css" >-->
+<link rel="icon" type="image/png" href="<?= BASE ?>image/favicon.png" />
