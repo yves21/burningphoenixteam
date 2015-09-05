@@ -19,7 +19,7 @@ require(BASE."conf/auth-config.php");
             <div>
 
                <h1>Présentation</h1>
-
+               <h2>Test auto deploy - test 2</h2>
 
             </div>
 			 <?php include (BASE."parts/footer.php"); ?>
