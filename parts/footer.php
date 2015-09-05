@@ -2,7 +2,7 @@
 
 <div>
     <div>
-        <img src="./image/logo.png" alt="Logo">
+        <img src="<?= BASE ?>image/logo.png" alt="Logo">
     </div>
 </div>
 

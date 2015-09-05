@@ -17,7 +17,7 @@
                     <?php
                         $games = $bptDao->getGames();
                         foreach($games as $game) {
-                            echo "<li><a href=\"game.php?game=".$game['id']."\">".$game['name']."</a></li>";
+                            echo "<li><a href=\"".BASE."game.php?game=".$game['id']."\">".$game['name']."</a></li>";
                         }
                     ?>
                 </ul>
