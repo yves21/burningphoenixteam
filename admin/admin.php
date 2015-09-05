@@ -2,11 +2,8 @@
 
 require(BASE."conf/auth-config.php");
 
-if(!isset($user)) {
-    $nexturl = urlencode($_SERVER['REQUEST_URI']);
-    header('Location: '.BASE.'auth/login.php?nexturl='.$nexturl, TRUE, 302);
-    exit();
-}
+securedAccess($userid, $bptDao);
+
 ?>
 
 <!doctype html>

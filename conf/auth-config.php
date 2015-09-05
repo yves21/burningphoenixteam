@@ -17,4 +17,18 @@ if(isset($_COOKIE[$config->cookie_name]) && $auth->checkSession($_COOKIE[$config
     $userid = $auth->getSessionUID($_COOKIE[$config->cookie_name]);
     $user = $auth->getUser($userid);
 }
+
+function securedAccess($userid, $bptDao, $role) {
+    if(!isset($userid)) {
+        $nexturl = urlencode($_SERVER['REQUEST_URI']);
+        header('Location: '.BASE.'auth/login.php?nexturl='.$nexturl, TRUE, 302);
+        exit();
+    } else if (isset($role)) {
+        if (!$bptDao->hasRole($userid, $role)) {
+            header('HTTP/1.0 403 Forbidden');
+            echo 'You don\'t have enough permissions to access this page !';
+            exit();
+        }
+    }
+}
 ?>

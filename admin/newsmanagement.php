@@ -3,18 +3,7 @@
 require(BASE."conf/auth-config.php");
 require(BASE."conf/fn-utils.php");
 
-if(!isset($user)) {
-    $nexturl = urlencode($_SERVER['REQUEST_URI']);
-    header('Location: '.BASE.'auth/login.php?nexturl='.$nexturl, TRUE, 302);
-    exit();
-} else {
-
-    if (!$bptDao->hasRole($userid, 'newsmanager')) {
-        header('HTTP/1.0 403 Forbidden');
-        echo 'You don\'t have enough permissions to access this page !';
-        exit();
-    }
-}
+securedAccess($userid, $bptDao, 'newsmanager');
 
 $mode = 'normal';
 $newsid=0;
