@@ -22,7 +22,7 @@ if (isset($_GET['game'])) {
 
             <?php include (BASE."parts/header.php"); ?>
 
-            <div>
+            <div class="text-block">
                 <h1><?= $viewgame['name'] ?></h1>
                 <?= html_entity_decode($viewgame['content']) ?>
             </div>

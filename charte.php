@@ -16,7 +16,7 @@ require(BASE."conf/auth-config.php");
 
             <?php include (BASE."parts/header.php"); ?>
 
-            <div>
+            <div class="text-block">
 
                <h1>Charte des Burning Phoenix</h1>
 

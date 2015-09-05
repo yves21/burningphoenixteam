@@ -49,6 +49,16 @@ nav a {
     margin-left: 18px;
 }
 
+/* OTHER PAGES */
+.text-block {
+    border-radius: 8px;
+    background-color: rgba(33, 33, 33, 0.9);
+    color: white;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+
 /*PANEL GENERAL*/
 .panel-primary>.panel-heading {
     background-color: black;
