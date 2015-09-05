@@ -2,7 +2,7 @@
 
 require(BASE."conf/auth-config.php");
 
-securedAccess($userid, $bptDao);
+securedAccess($userid, $bptDao, '');
 
 ?>
 

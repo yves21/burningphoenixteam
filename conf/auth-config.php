@@ -23,7 +23,7 @@ function securedAccess($userid, $bptDao, $role) {
         $nexturl = urlencode($_SERVER['REQUEST_URI']);
         header('Location: '.BASE.'auth/login.php?nexturl='.$nexturl, TRUE, 302);
         exit();
-    } else if (isset($role)) {
+    } else if ($role != "") {
         if (!$bptDao->hasRole($userid, $role)) {
             header('HTTP/1.0 403 Forbidden');
             echo 'You don\'t have enough permissions to access this page !';
