@@ -13,6 +13,17 @@ if (isset($_POST['bt_submit'])) {
 
     $login = $auth->login($_POST['email'], $_POST['password'], $rememberme);
 
+    if (!$login['error']) {
+        echo $_POST['redirect'];
+        header('Location: '.$_POST['redirect'], TRUE, 302);
+    }
+
+} else {
+
+    $redirect = BASE;
+    if (isset($_GET['nexturl'])) {
+        $redirect = $_GET['nexturl'];
+    }
 }
 ?>
 <!doctype html>
@@ -60,6 +71,7 @@ if (isset($_POST['bt_submit'])) {
                         <div class="form-group">
                             <label class="col-sm-2 control-label"></label>
                             <div class="col-sm-10">
+                                <input type="hidden" id="redirect" name="redirect" value="<?= $redirect ?>" />
                                 <input type="reset" class="btn btn-warning" id="bt_reset" name="bt_reset" value="Reset" />
                                 <input type="submit" class="btn btn-primary" id="bt_submit" name="bt_submit" value="Send" />
                             </div>

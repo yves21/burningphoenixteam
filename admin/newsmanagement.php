@@ -4,7 +4,8 @@ require(BASE."conf/auth-config.php");
 require(BASE."conf/fn-utils.php");
 
 if(!isset($user)) {
-    header('Location: '.BASE.'auth/login.php', TRUE, 302);
+    $nexturl = urlencode($_SERVER['REQUEST_URI']);
+    header('Location: '.BASE.'auth/login.php?nexturl='.$nexturl, TRUE, 302);
     exit();
 } else {
 
