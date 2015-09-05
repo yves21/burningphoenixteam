@@ -47,6 +47,7 @@ if (isset($_GET['key'])) {
                         <div class="form-group">
                             <label class="col-sm-2 control-label"></label>
                             <div class="col-sm-10">
+                                <input type="hidden" id="key" name="key" value="<?= $key ?>" />
                                 <input type="reset" class="btn btn-warning" id="bt_reset" name="bt_reset" value="Reset" />
                                 <input type="submit" class="btn btn-primary" id="bt_submit" name="bt_submit" value="Send" />
                             </div>
