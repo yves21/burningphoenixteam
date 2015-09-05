@@ -1,7 +1,7 @@
 <?php $pagename = basename($_SERVER['PHP_SELF']); ?>
 <header>
     <a href="<?= BASE ?>index.php">
-        <img src="<?= BASE ?>image/banniere.jpg" alt="Banniere BPT" />
+        <img src="<?= BASE ?>image/banniere.jpg" class="img-responsive" alt="Banniere BPT" />
     </a>
 </header>
 <nav>
