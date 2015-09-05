@@ -5,4 +5,5 @@
 /node_modules/
 /lib/
 /vendor/
-/upload/*
+/upload/*.jpg
+/upload/*.png
