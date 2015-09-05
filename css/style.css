@@ -88,6 +88,12 @@ nav a {
     width: 80%;
 }
 
+.newscontent {
+    background-color: rgba(144, 88, 11, 0.5);
+    border-radius: 8px;
+    padding: 10px;
+}
+
 .newscaroussel {
     font-family: verdana;
     padding: 0;

@@ -46,7 +46,7 @@ if (isset($_POST['bt_submit'])) {
                             <label class="col-sm-2 control-label" for="password">Mot de passe : </label>
                             <div class="col-sm-10">
                                 <input type="password" class="form-control" name="password" id="password" maxlength="30" value="<?= getSafePostValue('password') ?>" />
-                                <div class="info">Mot de pass oublié ? <a href="<?= BASE ?>auth/reset.php">cliquez ici</a>.</div>
+                                <div class="info">Mot de passe oublié ? <a href="<?= BASE ?>auth/reset.php">cliquez ici</a>.</div>
                             </div>
                         </div>
                         <div class="form-group">
