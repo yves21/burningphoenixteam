@@ -22,6 +22,13 @@ if (isset($_GET['edit'])) {
     $mode='edit';
     $newsid = $_GET['edit'];
     $editednews = $bptDao->getNewsById($newsid);
+
+    if ($editednews == null) {
+        header('HTTP/1.0 500 Internal Server Error', true, 500);
+        echo 'Wrong parameters !';
+        exit();
+    }
+
 } else if (isset($_GET['new'])) {
     $mode='create';
 }

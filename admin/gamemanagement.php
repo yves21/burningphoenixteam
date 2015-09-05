@@ -21,6 +21,12 @@ if (isset($_GET['edit'])) {
     $mode='edit';
     $gameid = $_GET['edit'];
     $editedgame = $bptDao->getGame($gameid);
+
+    if ($editedgame == null) {
+        header('HTTP/1.0 500 Internal Server Error', true, 500);
+        echo 'Wrong parameters !';
+        exit();
+    }
 } else if (isset($_GET['new'])) {
     $mode='create';
 }
