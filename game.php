@@ -5,6 +5,7 @@ require(BASE."conf/auth-config.php");
 if (isset($_GET['game'])) {
     $gameid = $_GET['game'];
     $viewgame = $bptDao->getGame($gameid);
+    $gameauthor = $bptDao->getProfileById($viewgame['author']);
 }
 ?>
 <!doctype html>
@@ -24,7 +25,11 @@ if (isset($_GET['game'])) {
 
             <div class="text-block">
                 <h1><?= $viewgame['name'] ?></h1>
-                <?= html_entity_decode($viewgame['content']) ?>
+                <div>
+                    <?= html_entity_decode($viewgame['content']) ?>
+                    <p>Auteur : <?= $gameauthor['username'] ?>
+                    </p>
+                </div>
             </div>
 			 <?php include (BASE."parts/footer.php"); ?>
 		</div>
