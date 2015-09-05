@@ -6,7 +6,10 @@ require(BASE."conf/auth-config.php");
 if (isset($_POST['bt_submit'])) {
 
     $register = $auth->register($_POST['email'], $_POST['password1'], $_POST['password2']);
-
+    if (!$register['error']) {
+        $newUserid = $auth->getUID($_POST['email']);
+        $bptDao->createProfile($newUserid, $_POST['nickname']);
+    }
 }
 ?>
 <!doctype html>
@@ -38,7 +41,7 @@ if (isset($_POST['bt_submit'])) {
                         <div class="form-group">
                             <label class="col-sm-2 control-label" for="nickname">Nickname : </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="nickname" id="nickname" maxlength="120" placeholder="Nickname" value="<?= getSafePostValue('nickname') ?>" />
+                                <input type="text" class="form-control" name="nickname" id="nickname" minlength="4" maxlength="30" placeholder="Nickname" value="<?= getSafePostValue('nickname') ?>" />
                             </div>
                         </div>
                         <div class="form-group">

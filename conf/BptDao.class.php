@@ -17,13 +17,14 @@ class BptDao
 		$this->bdd = $bdd;
 	}
 
-    public function insertNews($subject, $summary, $content, $imageName) {
-        $stmt = $this->bdd->prepare('INSERT INTO news(subject, summary, content, image, created) VALUES (:subject, :summary, :content, :image, :created)');
+    public function insertNews($subject, $summary, $content, $imageName, $author) {
+        $stmt = $this->bdd->prepare('INSERT INTO news(subject, summary, content, image, author, created) VALUES (:subject, :summary, :content, :image, :author, :created)');
         $stmt->bindParam(':subject', $subject);
         $stmt->bindParam(':summary', $summary);
         $stmt->bindParam(':content', htmlspecialchars($content));
         $stmt->bindParam(':image',  $imageName);
-        $stmt->bindParam(':created', date());
+        $stmt->bindParam(':author',  $author);
+        $stmt->bindParam(':created', date('Y-m-d H:i:s'));
         $stmt->execute();
     }
 
@@ -48,6 +49,21 @@ class BptDao
         $stmt->bindParam(':authorid',  $userid);
         $stmt->bindParam(':gameid',  $gameid);
         $stmt->execute();
+    }
+
+    public function createProfile($userid, $username) {
+        $stmt = $this->bdd->prepare('INSERT INTO userprofile(user_id, username) VALUES (:user_id, :username)');
+        $stmt->bindParam(':user_id', $userid);
+        $stmt->bindParam(':username', $username);
+        $stmt->execute();
+    }
+
+     public function getProfileById($userid) {
+        $stmt = $this->bdd->prepare("SELECT username FROM userprofile WHERE user_id=?");
+        $stmt->execute(array($userid));
+        if ($stmt->execute()) {
+            return $stmt->fetch();
+        }
     }
 
     public function hasRole($userid, $role) {
@@ -89,7 +105,7 @@ class BptDao
      public function getAllNews($limit) {
         $index = 1;
         $results = array();
-        $stmt = $this->bdd->prepare("SELECT id, subject, summary, image, created FROM news ORDER BY created desc");
+        $stmt = $this->bdd->prepare("SELECT id, subject, summary, image, author, created FROM news ORDER BY created desc");
         $stmt->execute();
         if ($stmt->execute()) {
             while ($row = $stmt->fetch()) {
@@ -103,7 +119,7 @@ class BptDao
     }
 
      public function getNewsById($newsid) {
-        $stmt = $this->bdd->prepare("SELECT id, subject, summary, content, image, created FROM news WHERE id=?");
+        $stmt = $this->bdd->prepare("SELECT id, subject, summary, content, image, author, created FROM news WHERE id=?");
         $stmt->execute(array($newsid));
         if ($stmt->execute()) {
             return $stmt->fetch();

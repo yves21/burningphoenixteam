@@ -41,7 +41,7 @@ if (isset($_POST['bt_submit'])) {
         } else{
             echo "There was an error uploading the file, please try again!";
         }
-        $bptDao->insertNews($_POST['subject'], $_POST['summary'], $_POST['content'], $imageName);
+        $bptDao->insertNews($_POST['subject'], $_POST['summary'], $_POST['content'], $imageName, $userid);
    } else {
         $bptDao->updateNews($_POST['newsid'], $_POST['content']);
    }

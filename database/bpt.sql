@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Sam 05 Septembre 2015 à 17:04
+-- Généré le :  Sam 05 Septembre 2015 à 17:44
 -- Version du serveur :  5.6.26
 -- Version de PHP :  5.5.28
 
@@ -70,7 +70,8 @@ CREATE TABLE IF NOT EXISTS `news` (
   `summary` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `image` varchar(100) DEFAULT NULL,
-  `created` date NOT NULL
+  `author` int(11) NOT NULL,
+  `created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -177,7 +178,8 @@ ALTER TABLE `games`
 -- Index pour la table `news`
 --
 ALTER TABLE `news`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `author_fk` (`author`);
 
 --
 -- Index pour la table `requests`
