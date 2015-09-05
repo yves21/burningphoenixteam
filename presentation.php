@@ -26,7 +26,7 @@ require(BASE."conf/auth-config.php");
                     <p>Nous regroupons des joueurs de 18 à plus de 50 ans, nous n’avons pas de règles de présence, nous ne sommes pas des adeptes d'une hiérarchie pure et dure. Seul le respect et le partage sont de mises!</p>
                     <p>Au fil du temps, le clan est devenu multigaming et son forum, une banque de données importantes non seulement dans le monde du jeu vidéo mais aussi sur des sujets de notre vie quotidienne.</p>
                     <p>Vous recherchez un clan mature, à l'écoute, sans contrainte de présence, vous voulez embraser le monde du jeu vidéo, alors rejoignez les Burning Phoenix Team !</p>
-</h2>
+                </h2>
 
             </div>
 			 <?php include (BASE."parts/footer.php"); ?>
