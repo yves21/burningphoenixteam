@@ -1,12 +1,18 @@
 <?php
 if (isset($_GET['newsid'])) {
-    echo "<div class=\"newscontent\">";
+
+    echo "<div class=\"panel panel-default newscontent\">";
         $newsfullscreen = $bptDao->getNewsById($_GET['newsid']);
         $newsauthor = $bptDao->getProfileById($newsfullscreen['author']);
-        echo "<h1>".$newsfullscreen['subject']."</h1><h2>".$newsfullscreen['summary']."</h2>";
-        echo "<div>";
-            echo html_entity_decode($newsfullscreen['content']);
-            echo "<p>Auteur : ".$newsauthor['username']."</p>";
+        echo "<div class=\"panel-heading\">";
+            echo "<h1>".$newsfullscreen['subject']."</h1>";
+        echo "</div>";
+        echo "<div class=\"panel-body\">";
+            echo "<h2>".$newsfullscreen['summary']."</h2>";
+            echo "<div>";
+                echo html_entity_decode($newsfullscreen['content']);
+                echo "<p>Auteur : ".$newsauthor['username']."</p>";
+            echo "</div>";
         echo "</div>";
     echo "</div>";
 

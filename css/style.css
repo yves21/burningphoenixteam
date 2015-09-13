@@ -96,10 +96,20 @@ nav a {
     width: 80%;
 }
 
-.newscontent {
-    background-color: rgba(144, 88, 11, 0.5);
+/*.newscontent {
+    background-color: rgba(0, 0, 0, 0.5);
+    border:3px solid #999;
     border-radius: 8px;
+    color:#ddd;
     padding: 10px;
+}
+.newscontent h1 {
+    background-color: #9a7ab7;
+}*/
+
+.newscontent .panel-heading {
+    background-color: #9a7ab7;
+    background-image: none;
 }
 
 .newscaroussel {

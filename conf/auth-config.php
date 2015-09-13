@@ -8,8 +8,8 @@ require(BASE."conf/BptDao.class.php");
 $dbauth = new PDO("mysql:host=localhost;dbname=bpt", "root", "UeyK7b45");
 $dbauth->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$config = new Config($dbauth);
-$auth = new Auth($dbauth, $config, $lang);
+$config = new PHPAuth\Config($dbauth);
+$auth = new PHPAuth\Auth($dbauth, $config, $lang);
 
 $bptDao = new BptDao($dbauth);
 
