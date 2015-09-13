@@ -43,8 +43,9 @@ if (isset($_POST['bt_submit'])) {
                             $roles = $bptDao->getRoles();
                             $users = $bptDao->getValidatedUsers($config);
                             foreach ($users as $user) {
+                                $userProfile = $bptDao->getProfileById($user['id']);
                                 echo "<li>";
-                                echo "<h2>".$user['email']."</h2>";
+                                echo "<h2>".$userProfile['username']."</h2>";
                                 foreach ($roles as $role) {
                                     $checked = "";
                                     if ($bptDao->hasRole($user['id'], $role['role'])) {
