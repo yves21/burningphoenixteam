@@ -35,7 +35,7 @@ if (isset($_POST['bt_submit'])) {
 
             <?php include ("../parts/header.php"); ?>
 
-            <div>
+            <div class="management-content">
                 <h1>User management</h1>
                 <form action="usermanagement.php" method="post" name="usermgmt" id="usermgmt">
                     <ul>

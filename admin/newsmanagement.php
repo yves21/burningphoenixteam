@@ -21,6 +21,9 @@ if (isset($_GET['edit'])) {
 
 } else if (isset($_GET['new'])) {
     $mode='create';
+} else if (isset($_GET['del'])) {
+    $newsid = $_GET['del'];
+    $bptDao->deleteNews($newsid);
 }
 
 if (isset($_POST['bt_submit'])) {
@@ -53,6 +56,7 @@ if (isset($_POST['bt_submit'])) {
 		</title>
 
 		<?php include ("../parts/meta-css.php"); ?>
+        <link rel="stylesheet" href="<?= BASE ?>lib/jquery-ui/themes/smoothness/jquery-ui.min.css" >
         <link rel="stylesheet" href="<?= BASE ?>css/admin.css" >
         <script src="<?= BASE ?>lib/ckeditor/ckeditor.js"></script>
 	</head>
@@ -61,18 +65,19 @@ if (isset($_POST['bt_submit'])) {
 
             <?php include ("../parts/header.php"); ?>
 
-            <div>
+            <div class="management-content">
                 <h1>News management</h1>
 
                 <ul>
                     <?php
                         $allnews = $bptDao->getAllNews(10);
                         foreach ($allnews as $newsitem) {
-                            echo "<li><a href='newsmanagement.php?edit=".$newsitem['id']."'>".$newsitem['subject']."</a></li>";
+                            echo "<li><a href='newsmanagement.php?edit=".$newsitem['id']."'>".$newsitem['subject']."</a>"
+                                    ." <span class='glyphicon glyphicon-trash delete-news' id='".$newsitem['id']."'></span></li>";
                         }
                     ?>
                 </ul>
-                <a href="newsmanagement.php?new=0">Créer une nouvelle news</a>
+                <span class="glyphicon glyphicon-plus-sign"></span> <a href="newsmanagement.php?new=0">Créer une nouvelle news</a>
 
                 <?php if ($mode == 'edit' || $mode == 'create') { ?>
 
@@ -98,8 +103,6 @@ if (isset($_POST['bt_submit'])) {
                             <div class="col-sm-10">
                                 <textarea name="content" id="content" placeholder="Tapez ici votre contenu" required ><?php if ($mode == 'edit') { echo html_entity_decode($editednews['content']); } ?></textarea>
                                 <script>
-                                    // Replace the <textarea id="editor1"> with a CKEditor
-                                    // instance, using default configuration.
                                     CKEDITOR.replace( 'content', { language : 'fr' } );
                                 </script>
                             </div>
@@ -130,7 +133,12 @@ if (isset($_POST['bt_submit'])) {
             </div>
 			 <?php include ("../parts/footer.php"); ?>
 		</div>
+        <div id="dialog-confirm" title="Sure to delete this news ?">
+          <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>This news will be permanently deleted and cannot be recovered. Are you sure?</p>
+        </div>
         <?php include ("../parts/js-script.php"); ?>
+        <script type="text/javascript" src="<?= BASE ?>lib/jquery-ui/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="<?= BASE ?>js/management.js"></script>
 	</body>
 
 </html>

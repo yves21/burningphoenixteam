@@ -20,6 +20,7 @@
     "bootstrap": "~3.3.5",
     "ckeditor": "#full/latest",
     "jquery": "~2.1.4",
+    "jquery-ui": "~1.11.4",
     "jQueryEventCalendar": "https://github.com/jaime8111/jQueryEventCalendar.git",
     "PHPAuth": "https://github.com/PHPAuth/PHPAuth.git",
     "slick.js": "~1.5.8",

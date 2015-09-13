@@ -19,7 +19,11 @@ if (isset($_GET['edit'])) {
     }
 } else if (isset($_GET['new'])) {
     $mode='create';
+} else if (isset($_GET['del'])) {
+    $gameid = $_GET['del'];
+    $bptDao->deleteGame($gameid);
 }
+
 
 if (isset($_POST['bt_submit'])) {
    if ($_POST['gameid'] == "0") {
@@ -38,6 +42,7 @@ if (isset($_POST['bt_submit'])) {
 		</title>
 
 		<?php include ("../parts/meta-css.php"); ?>
+        <link rel="stylesheet" href="<?= BASE ?>lib/jquery-ui/themes/smoothness/jquery-ui.min.css" >
         <link rel="stylesheet" href="<?= BASE ?>css/admin.css" >
         <script src="<?= BASE ?>lib/ckeditor/ckeditor.js"></script>
 	</head>
@@ -46,18 +51,19 @@ if (isset($_POST['bt_submit'])) {
 
             <?php include ("../parts/header.php"); ?>
 
-            <div>
+            <div class="management-content">
                 <h1>Game management</h1>
 
                 <ul>
                     <?php
                         $games = $bptDao->getGames();
                         foreach ($games as $game) {
-                            echo "<li><a href='gamemanagement.php?edit=".$game['id']."'>".$game['name']."</a></li>";
+                            echo "<li><a href='gamemanagement.php?edit=".$game['id']."'>".$game['name']."</a>"
+                                ." <span class='glyphicon glyphicon-trash delete-game' id='".$game['id']."'></span></li>";
                         }
                     ?>
                 </ul>
-                <a href="gamemanagement.php?new=0">Créer un nouveau jeu</a>
+                 <span class="glyphicon glyphicon-plus-sign"></span> <a href="gamemanagement.php?new=0">Créer un nouveau jeu</a>
 
                 <?php if ($mode == 'edit' || $mode == 'create') { ?>
                 <form action="gamemanagement.php" method="post" name="gamemgmt" id="gamemgmt">
@@ -98,7 +104,12 @@ if (isset($_POST['bt_submit'])) {
             </div>
 			 <?php include ("../parts/footer.php"); ?>
 		</div>
+        <div id="dialog-confirm" title="Sure to delete this game ?">
+          <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>This game will be permanently deleted and cannot be recovered. Are you sure?</p>
+        </div>
         <?php include ("../parts/js-script.php"); ?>
+        <script type="text/javascript" src="<?= BASE ?>lib/jquery-ui/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="<?= BASE ?>js/management.js"></script>
 	</body>
 
 </html>

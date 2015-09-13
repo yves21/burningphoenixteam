@@ -13,8 +13,8 @@ foreach  ($allnews as $newsitem) {
     echo "<div class=\"newsdetail\">";
     echo "<h1>".$newsitem['subject']."</h1>";
     echo "<h2>".$newsitem['summary']."</h2>";
-    echo "<p>".$newsitem['created']." - Auteur : ".$newsauthor['username']."</p>";
     echo "</div>";
+    echo "<p>".$newsitem['created']."<br/>".$newsauthor['username']."</p>";
 
     echo "</li>";
 }

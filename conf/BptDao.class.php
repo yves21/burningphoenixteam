@@ -35,6 +35,12 @@ class BptDao
         $stmt->execute();
     }
 
+    public function deleteNews($newsid) {
+        $stmt = $this->bdd->prepare('DELETE FROM news WHERE id=:newsid');
+        $stmt->bindParam(':newsid',  $newsid);
+        $stmt->execute();
+    }
+
     public function createGame($name, $content, $userid) {
         $stmt = $this->bdd->prepare('INSERT INTO games(name, content, author) VALUES (:name, :content, :authorid)');
         $stmt->bindParam(':name', $name);
@@ -47,6 +53,12 @@ class BptDao
         $stmt = $this->bdd->prepare('UPDATE games set content=:content, author=:authorid WHERE id=:gameid');
         $stmt->bindParam(':content', htmlspecialchars($content));
         $stmt->bindParam(':authorid',  $userid);
+        $stmt->bindParam(':gameid',  $gameid);
+        $stmt->execute();
+    }
+
+    public function deleteGame($gameid) {
+        $stmt = $this->bdd->prepare('DELETE FROM games WHERE id=:gameid');
         $stmt->bindParam(':gameid',  $gameid);
         $stmt->execute();
     }

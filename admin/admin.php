@@ -14,14 +14,15 @@ securedAccess($userid, $bptDao, '');
 		</title>
 
 		<?php include ("../parts/meta-css.php"); ?>
-        <!--<link rel="stylesheet" href="<?= BASE ?>css/admin.css" >-->
+        <link rel="stylesheet" href="<?= BASE ?>css/admin.css" >
 	</head>
 	<body>
 		<div id="container" class="container-fluid">
 
             <?php include ("../parts/header.php"); ?>
 
-            <div>
+            <div class="management-content">
+                <h1>Administration</h1>
                 <ul>
                     <li><a href="<?= BASE ?>admin/newsmanagement.php">Gestion des news</a></li>
                     <li><a href="<?= BASE ?>admin/usermanagement.php">User administration</a></li>

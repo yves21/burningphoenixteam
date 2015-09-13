@@ -7,3 +7,21 @@ form#newsmgmt {
     border-radius: 8px;
     width:70%;
 }
+
+.delete-news, .delete-game {
+    cursor: pointer;
+}
+
+ .management-content {
+     background-color: rgba(239,228,176, 0.8);
+     border-radius: 8px;
+     padding: 10px;
+ }
+
+ .management-content a {
+     color: #b33713 !important;
+ }
+
+#dialog-confirm {
+    display: none;
+}
