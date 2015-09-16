@@ -1,6 +1,6 @@
 /*GENERAL*/
 body {
-    background-color: #000;
+    background-color: #000 !important;
     background-image: url(../image/background.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
