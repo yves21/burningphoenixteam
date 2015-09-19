@@ -1,7 +1,7 @@
 <?php
 if (isset($_GET['newsid'])) {
 
-    echo "<div class=\"panel panel-default newscontent\">";
+    echo "<div class=\"panel panel-primary\">";
         $newsfullscreen = $bptDao->getNewsById($_GET['newsid']);
         $newsauthor = $bptDao->getProfileById($newsfullscreen['author']);
         echo "<div class=\"panel-heading\">";

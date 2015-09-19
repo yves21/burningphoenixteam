@@ -1,4 +1,6 @@
-/*GENERAL*/
+/***************************************************************
+************************** GENERAL *****************************
+****************************************************************/
 body {
     background-color: #000 !important;
     background-image: url(../image/background.jpg);
@@ -7,14 +9,43 @@ body {
     font-size: 13px;
 }
 
-/*HEADER*/
+#container {
+    width: 85%;
+}
+
+h1 {
+    font-size: 2em;
+    margin:5px;
+    padding: 0;
+}
+
+h2 {
+    font-size: 1.7em;
+    margin:0;
+    padding: 0;
+    margin:3px;
+}
+
+.text-block {
+    border-radius: 8px;
+    background-color: rgba(33, 33, 33, 0.9);
+    color: white;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+/***************************************************************
+************************** HEADER ******************************
+****************************************************************/
 header {
     text-align: center;
     margin: 0 auto;
     max-width: 1200px;
 }
 
-/*NAV*/
+/***************************************************************
+************************** NAVIGATION **************************
+****************************************************************/
 nav {
     background-color: black;
     background-color: rgba(33, 33, 33, 0.5);
@@ -35,31 +66,15 @@ nav a {
     border: 1px solid #333;
 }
 
-/*BOOTSTRAP CUSTOM*/
-#container {
-    width: 100%;
-}
-
 #container-nav {
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1000px;
 }
 
-.ul-nav {
-    margin-left: 18px;
-}
+/***************************************************************
+************************** INDEX PANELS ************************
+****************************************************************/
 
-/* OTHER PAGES */
-.text-block {
-    border-radius: 8px;
-    background-color: rgba(33, 33, 33, 0.9);
-    color: white;
-    padding: 20px;
-    margin-bottom: 10px;
-}
-
-
-/*PANEL GENERAL*/
 .panel-primary>.panel-heading {
     background-color: black;
     background-image: -webkit-linear-gradient(top,#000 0,#90580b 100%);
@@ -72,45 +87,22 @@ nav a {
     border-color: #666;
 }
 
-.row-content {
-    margin: 0 auto;
-    border-radius: 8px;
+/***************************************************************
+*********************** BOOTSTRAP CUSTOM ***********************
+****************************************************************/
+
+.row {
+    margin-left: -5px;
+    margin-right: -5px;
 }
 
-/*CAROUSSEL*/
-.col-md-6 {
-    padding: 0;
-    margin: 0 auto;
-    width: 100%;
+.col-md-3, .col-md-6 {
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
-.col-md-5 {
-    width: 50%;
-    padding: 0;
-    margin: 0 auto;
-}
 .panel-main {
-    padding: 0;
     background-color: transparent;
-    border: 0;
-    margin: 0 auto;
-    width: 80%;
-}
-
-/*.newscontent {
-    background-color: rgba(0, 0, 0, 0.5);
-    border:3px solid #999;
-    border-radius: 8px;
-    color:#ddd;
-    padding: 10px;
-}
-.newscontent h1 {
-    background-color: #9a7ab7;
-}*/
-
-.newscontent .panel-heading {
-    background-color: #9a7ab7;
-    background-image: none;
 }
 
 .newscaroussel {
@@ -196,7 +188,7 @@ nav a {
 }
 
 .general-panel {
-    width: 80%;
+   /* width: 80%;*/
 }
 
 /*FOOTER*/

@@ -24,25 +24,19 @@ require(BASE."conf/auth-config.php");
             <?php require "parts/header.php"; ?>
 
             <!--Caroussel-->
-            <div class="row row-content">
+            <div>
                 <!--Bloc panel-->
-                <section id="content" class="col-md-6">
-                    <div class="panel panel-primary panel-main">
-                        <div class="panel-body">
-                           <?php require "parts/news.php"; ?>
-                        </div>
-                    </div>
-                </section>
-            </div>
+                <?php require "parts/news.php"; ?>
+             </div>
 
             <!--Video, Actu-->
-            <div class="row row-content general-panel">
+            <div class="row">
 
                 <!--Bloc de gauche-->
                 <?php require "parts/leftaside.php"; ?>
 
                 <!--Bloc central-->
-                <section id="content" class="col-md-5">
+                <section id="content" class="col-md-6">
                     <div class="panel panel-primary panel-video">
                         <div class="panel-body bptvideo">
                           <div style='position: relative; width: 100%; height: 0px; padding-bottom: 60%;'>
