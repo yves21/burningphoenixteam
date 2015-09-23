@@ -111,6 +111,10 @@ nav a {
     text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
 }
 
+.newscaroussel h1 span, .newscaroussel h2 span {
+    background-image: url(../image/header_bg.png);
+}
+
 .newscaroussel h2 {
     font-size: 1.2em;
 }

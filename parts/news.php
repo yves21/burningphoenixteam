@@ -21,7 +21,7 @@ if (isset($_GET['newsid'])) {
     $newslist =  $bptDao->getAllNews(5);
     foreach  ($newslist as $newscaroussel) {
         echo "<div style=\"background-image:url('".BASE."upload/".$newscaroussel['image']."')\" id=\"".$newscaroussel['id']."\">";
-        echo "<h1>".$newscaroussel['subject']."</h1><h2>".$newscaroussel['summary']."</h2>";
+        echo "<h1><span>".$newscaroussel['subject']."</span></h1><h2><span>".$newscaroussel['summary']."</span></h2>";
         echo "</div>";
     }
     echo "</div>";
