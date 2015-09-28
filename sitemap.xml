@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://www.burningphoenixteam.fr/</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.burningphoenixteam.fr/index.php</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.burningphoenixteam.fr/presentation.php</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.burningphoenixteam.fr/historique.php</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.burningphoenixteam.fr/recrut.php</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.burningphoenixteam.fr/game.php?game=2</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.burningphoenixteam.fr/game.php?game=4</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.burningphoenixteam.fr/game.php?game=5</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.burningphoenixteam.fr/game.php?game=6</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.burningphoenixteam.fr/charte.php</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.burningphoenixteam.fr/admin/../auth/login.php?nexturl=%2Fadmin%2Fadmin.php</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.burningphoenixteam.fr/index.php?newsid=22</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.burningphoenixteam.fr/index.php?newsid=21</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.burningphoenixteam.fr/index.php?newsid=20</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.burningphoenixteam.fr/index.php?newsid=19</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.burningphoenixteam.fr/index.php?newsid=18</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.burningphoenixteam.fr/auth/reset.php</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.burningphoenixteam.fr/auth/register.php</loc>
+  <changefreq>weekly</changefreq>
+</url>
+</urlset>
