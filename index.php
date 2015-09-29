@@ -63,6 +63,7 @@ require(BASE."conf/auth-config.php");
 
         <?php include "parts/js-script.php"; ?>
         <script type="text/javascript" src="js/index.js" ></script>
+        <script type="text/javascript" src="js/twitch.js" ></script>
         <script type="text/javascript" src="lib/jQueryEventCalendar/js/moment.js" ></script>
         <script type="text/javascript" src="lib/jQueryEventCalendar/js/jquery.eventCalendar.min.js" ></script>
         <script type="text/javascript" src="lib/slick.js/slick/slick.min.js"></script>
