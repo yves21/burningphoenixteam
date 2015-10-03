@@ -7,6 +7,8 @@ securedAccess($userid, $bptDao, 'newsmanager');
 
 $mode = 'normal';
 $newsid=0;
+$errorMessage = null;
+$infoMessage = null;
 
 if (isset($_GET['edit'])) {
     $mode='edit';
@@ -28,22 +30,27 @@ if (isset($_GET['edit'])) {
 
 if (isset($_POST['bt_submit'])) {
    if ($_POST['newsid'] == "0") {
-        $prefixImageName = generateRandomString();
-        $upload_path = "../upload/";
-        $imageName = $prefixImageName.basename($_FILES['image']['name']);
-        $target_path = $upload_path.$imageName;
-        $target_path_mini = $upload_path."mini_".$imageName;
-
-        if(move_uploaded_file($_FILES['image']['tmp_name'], $target_path)) {
-           echo "The file ".  basename( $_FILES['image']['name'])." has been uploaded\n";
-           $info = pathinfo($target_path);
-           createThumbnail($info, $target_path, $target_path_mini, 200);
-        } else{
-            echo "There was an error uploading the file, please try again!";
+        // CREATE NEWS
+        $imageName = uploadImageAndMini($_FILES['image']);
+        if ($imageName != null) {
+            $bptDao->insertNews($_POST['subject'], $_POST['summary'], $_POST['content'], $imageName, $userid);
+            $infoMessage = "La news a bien été créée !";
+        } else {
+            $errorMessage = "Error lors de l'upload de votre image, la news n'a pas été créée !";
         }
-        $bptDao->insertNews($_POST['subject'], $_POST['summary'], $_POST['content'], $imageName, $userid);
    } else {
-        $bptDao->updateNews($_POST['newsid'], $_POST['content']);
+        // UPDATE NEWS
+        $uploadImageName = basename($_FILES['image']['name']);
+        if ($uploadImageName != "") {
+            $imageName = uploadImageAndMini($_FILES['image']);
+            if ($imageName == null) {
+                $errorMessage = "Error lors de l'upload de votre image, l'image de la news n'a pas été mise à jour !";
+            }
+        } else {
+            $imageName = null;
+        }
+        $bptDao->updateNews($_POST['newsid'], $_POST['summary'], $_POST['content'], $imageName);
+        $infoMessage = "La news a bien été mise a jour !";
    }
 }
 ?>
@@ -72,12 +79,19 @@ if (isset($_POST['bt_submit'])) {
                     <?php
                         $allnews = $bptDao->getAllNews(0);
                         foreach ($allnews as $newsitem) {
-                            echo "<li><a href='newsmanagement.php?edit=".$newsitem['id']."'>".$newsitem['subject']."</a>"
+                            echo "<li>".$newsitem['created']." - <a href='newsmanagement.php?edit=".$newsitem['id']."'>".$newsitem['subject']."</a>"
                                     ." <span class='glyphicon glyphicon-trash delete-news' id='".$newsitem['id']."'></span></li>";
                         }
                     ?>
                 </ul>
                 <span class="glyphicon glyphicon-plus-sign"></span> <a href="newsmanagement.php?new=0">Créer une nouvelle news</a>
+
+                <?php if ($infoMessage != null) { ?>
+                <div class="alert alert-success"><?=$infoMessage?></div>
+                <?php }
+                if ($errorMessage != null) { ?>
+                <div class="alert alert-danger"><?=$errorMessage?></div>
+                <?php } ?>
 
                 <?php if ($mode == 'edit' || $mode == 'create') { ?>
 
@@ -91,13 +105,14 @@ if (isset($_POST['bt_submit'])) {
                                 <input type="text" class="form-control" name="subject" id="subject" maxlength="120" placeholder="Sujet de la news" required />
                             </div>
                         </div>
+                        <?php } ?>
                         <div class="form-group">
                             <label class="col-sm-2 control-label" for="summary">Résumé : </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="summary" id="summary" maxlength="255" placeholder="Résumé de la news" required />
+                                <input type="text" class="form-control" name="summary" id="summary" maxlength="255"
+                                placeholder="Résumé de la news" required value="<?php if ($mode == 'edit') { echo $editednews['summary']; } ?>" />
                             </div>
                         </div>
-                        <?php } ?>
                         <div class="form-group">
                             <label class="col-sm-2 control-label" for="content">Contenu :</label>
                             <div class="col-sm-10">
@@ -107,14 +122,13 @@ if (isset($_POST['bt_submit'])) {
                                 </script>
                             </div>
                         </div>
-                        <?php if ($mode == 'create') { ?>
+                        <?php if ($mode == 'create') { $imagerequired="required"; } else { $imagerequired=""; } ?>
                         <div class="form-group">
                             <label class="col-sm-2 control-label" for="image">Image : </label>
                             <div class="col-sm-10">
-                                <input type="file" class="form-control" name="image" id="image" accept="image/*" required />
+                                <input type="file" class="form-control" name="image" id="image" accept="image/*" <?= $imagerequired ?> />
                             </div>
                         </div>
-                        <?php } ?>
                     </fieldset>
                     <fieldset id="fs_buttons">
                         <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
@@ -128,7 +142,6 @@ if (isset($_POST['bt_submit'])) {
                         </div>
                     </fieldset>
                 </form>
-
                 <?php } ?>
             </div>
 			 <?php include ("../parts/footer.php"); ?>

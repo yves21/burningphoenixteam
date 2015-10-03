@@ -20,7 +20,6 @@ function createThumbnail($info, $target_path, $target_path_mini, $thumbWidth) {
         $tmp_img = imagecreatetruecolor( $new_width, $new_height );
         imagecopyresized( $tmp_img, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
         imagejpeg( $tmp_img, "{$target_path_mini}" );
-        echo "The thumbnail ".$target_path_mini." has been created";
     } else if ( strtolower($info['extension']) == 'png' ) {
         $img = imagecreatefrompng( "{$target_path}" );
         $width = imagesx( $img );
@@ -30,8 +29,23 @@ function createThumbnail($info, $target_path, $target_path_mini, $thumbWidth) {
         $tmp_img = imagecreatetruecolor( $new_width, $new_height );
         imagecopyresized( $tmp_img, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
         imagepng( $tmp_img, "{$target_path_mini}" );
-        echo "The thumbnail ".$target_path_mini." has been created";
    }
+}
+
+function uploadImageAndMini($fileInput) {
+    $uploadImageName = basename($fileInput['name']);
+    $prefixImageName = generateRandomString();
+    $upload_path = "../upload/";
+    $imageName = $prefixImageName.$uploadImageName;
+    $target_path = $upload_path.$imageName;
+    $target_path_mini = $upload_path."mini_".$imageName;
+    if(move_uploaded_file($fileInput['tmp_name'], $target_path)) {
+        $info = pathinfo($target_path);
+        createThumbnail($info, $target_path, $target_path_mini, 200);
+        return $imageName;
+    } else{
+        return null;
+    }
 }
 
 function getSafePostValue($value) {

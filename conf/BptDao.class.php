@@ -28,8 +28,14 @@ class BptDao
         $stmt->execute();
     }
 
-     public function updateNews($newsid, $content) {
-        $stmt = $this->bdd->prepare('UPDATE news set content=:content WHERE id=:newsid');
+     public function updateNews($newsid, $summary, $content, $imageName) {
+        if ($imageName != null) {
+            $stmt = $this->bdd->prepare('UPDATE news set summary=:summary, content=:content, image=:image WHERE id=:newsid');
+            $stmt->bindParam(':image', $imageName);
+        } else {
+            $stmt = $this->bdd->prepare('UPDATE news set summary=:summary, content=:content WHERE id=:newsid');
+        }
+        $stmt->bindParam(':summary', $summary);
         $stmt->bindParam(':content', htmlspecialchars($content));
         $stmt->bindParam(':newsid',  $newsid);
         $stmt->execute();
