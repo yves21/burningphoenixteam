@@ -105,6 +105,8 @@ nav a {
 }
 
 .newscaroussel {
+    /*border: 20px solid black;*/
+
     font-family: verdana;
     padding: 0;
     text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
@@ -123,7 +125,9 @@ nav a {
 }
 
 .newscaroussel .slick-slide {
-    background-size: contain;
+    background-width: 100%;
+    border: 15px solid rgba(255, 167, 0, 0.4);
+    border-radius: 15px;
     cursor: pointer;
     padding:10px;
     padding-top:10px;
