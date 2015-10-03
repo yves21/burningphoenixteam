@@ -99,7 +99,7 @@ nav a {
     border-color: #666;
 }
 
-.sidepanel {
+.sidepanel .panel-body {
     max-height: 500px;
     overflow: auto;
 }
