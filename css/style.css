@@ -126,7 +126,7 @@ nav a {
 
 .newscaroussel .slick-slide {
     background-size: 100% auto;
-    border: 15px solid rgba(255, 167, 0, 0.4);
+    border: 15px solid rgba(0, 0, 0, 0.4);
     border-radius: 15px;
     cursor: pointer;
     padding:10px;
