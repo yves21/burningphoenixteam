@@ -35,7 +35,8 @@
     <div class="panel panel-primary sidepanel">
       <div class="panel-heading"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Localisation</div>
       <div class="panel-body">
-        Panel content
+        <script src="http://www.widgeo.net/geocompteur/geocity.php?c=geocity_black&id=1443895778585&adult=0&cat=loisirs&idec=3157017281"></script>
+        <noscript><a href="http://www.widgeo.net" target="_blank"><img src="http://www.widgeo.net/geocompteur/geo_nojs.php?c=geocity_black&adult=0&cat=loisirs&id=1443895778585&idec=3157017281" alt="widget" border="0"></a></noscript>
       </div>
     </div>
 </div>
