@@ -40,11 +40,11 @@
         <!--************END CODE GEOMAP************-->
         <script language="JavaScript">
         <!--
-        iplocationtools_width = 180; // The width of API, minimum 160px, maximum 400px
-        iplocationtools_height = 400; // The height of API, minimum 80px, maximum 800px
+        iplocationtools_width = 280; // The width of API, minimum 160px, maximum 400px
+        iplocationtools_height = 280; // The height of API, minimum 80px, maximum 800px
         iplocationtools_border_size = 1; // The size of the border
         iplocationtools_border_color = '000000'; // Color of the border
-        iplocationtools_bg_color = 'BACCED'; // Background color
+        iplocationtools_bg_color = '333333'; // Background color
         iplocationtools_font_color = 'FFFFFF'; // Font color
         iplocationtools_font_size = 10; // Font size
         iplocationtools_show_time = 1; // Enable time stamp, 1=Enable,0=Disable
