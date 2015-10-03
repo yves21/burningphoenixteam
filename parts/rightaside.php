@@ -1,5 +1,5 @@
 <div id="rightaside" class="col-md-3">
-   <div class="panel panel-primary" id="panel-ts">
+   <div class="panel panel-primary sidepanel" id="panel-ts">
       <div class="panel-heading"><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> Teamspeak 3</div>
       <div class="panel-body">
         <div id="ts3viewer_1069669" style="width:; background-color:;"> </div>
@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <div class="panel panel-primary panel-youtube">
+    <div class="panel panel-primary sidepanel panel-youtube">
       <div class="panel-heading"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Les chaines video</div>
       <div class="panel-body">
         <ul>
@@ -32,7 +32,7 @@
         </ul>
       </div>
     </div>
-    <div class="panel panel-primary">
+    <div class="panel panel-primary sidepanel">
       <div class="panel-heading"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Localisation</div>
       <div class="panel-body">
         Panel content

@@ -1,6 +1,19 @@
 /***************************************************************
 ************************** GENERAL *****************************
 ****************************************************************/
+::-webkit-scrollbar {
+    width: 1em;
+}
+::-webkit-scrollbar-button {
+    background: #3A2404;
+}
+::-webkit-scrollbar-track-piece {
+    background: #eee;
+}
+::-webkit-scrollbar-thumb {
+    background: #90580b;
+}
+
 body {
     background-attachment: fixed;
     background-color: #000 !important;
@@ -84,6 +97,11 @@ nav a {
 
 .panel-primary {
     border-color: #666;
+}
+
+.sidepanel {
+    max-height: 500px;
+    overflow: auto;
 }
 
 /***************************************************************
