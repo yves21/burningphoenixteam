@@ -127,6 +127,7 @@ if (isset($_POST['bt_submit'])) {
                             <label class="col-sm-2 control-label" for="image">Image : </label>
                             <div class="col-sm-10">
                                 <input type="file" class="form-control" name="image" id="image" accept="image/*" <?= $imagerequired ?> />
+                                <strong>Attention, veuillez choisir une image avec si possible un ratio de 5 (largeur) sur 1 (hauteur).</strong>
                             </div>
                         </div>
                     </fieldset>
