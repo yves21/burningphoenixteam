@@ -38,22 +38,6 @@
         <!--************CODE GEOMAP************-->
         <a href="http://www.geovisites.com/fr/directory/jeux_internet.php?compte=834093189027"  target="_blank"><img src="http://geoloc4.geovisite.ovh/private/geomap.php?compte=834093189027&base=geoloc4" border="0" alt="internet"></a>
         <!--************END CODE GEOMAP************-->
-        <script language="JavaScript">
-        <!--
-        iplocationtools_width = 300; // The width of API, minimum 160px, maximum 400px
-        iplocationtools_height = 280; // The height of API, minimum 80px, maximum 800px
-        iplocationtools_border_size = 1; // The size of the border
-        iplocationtools_border_color = '000000'; // Color of the border
-        iplocationtools_bg_color = '333333'; // Background color
-        iplocationtools_font_color = 'FFFFFF'; // Font color
-        iplocationtools_font_size = 10; // Font size
-        iplocationtools_show_time = 1; // Enable time stamp, 1=Enable,0=Disable
-        iplocationtools_time_zone = 8; // Change this to display correct time
-        iplocationtools_custom_bg = "image/blackmap.jpg"; // Background image's URL
-        //-->
-        </script>
-        <script language="JavaScript"
-        src="http://www.iplocationtools.com/visitor.js?key=	6b657e616a6f73796761747f7c6f756c7161216573"></script>
       </div>
     </div>
 </div>
