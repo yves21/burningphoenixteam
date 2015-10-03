@@ -36,16 +36,8 @@
       <div class="panel-heading"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Localisation</div>
       <div class="panel-body">
         <!--************CODE GEOMAP************-->
-        <script type="text/javascript" src="http://geoloc4.geovisite.ovh/private/geomap.js?compte=834093189027"></script>
-        <noscript>
-        <a href="http://www.geovisites.com/fr/directory/jeux_internet.php?compte=834093189027"  target="_blank"><img src="http://geoloc4.geovisite.ovh/private/geomap.php?compte=834093189027" border="0" alt="jeux"></a>
-
-        <br>Please do not change this code for a perfect fonctionality of your counter
-        <a href="http://www.geovisites.com/fr/directory/jeux_internet.php">jeux</a>
-        </noscript>
-        <br><a href="http://www.geovisite.com/fr/">compteur pour site</a>
+        <a href="http://www.geovisites.com/fr/directory/jeux_internet.php?compte=834093189027"  target="_blank"><img src="http://geoloc4.geovisite.ovh/private/geomap.php?compte=834093189027&base=geoloc4" border="0" alt="internet"></a>
         <!--************END CODE GEOMAP************-->
-
       </div>
     </div>
 </div>
