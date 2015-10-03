@@ -2,9 +2,9 @@
 ************************** GENERAL *****************************
 ****************************************************************/
 body {
+    background-attachment: fixed;
     background-color: #000 !important;
     background-image: url(../image/background.jpg);
-    background-attachment: fixed;
     background-repeat: no-repeat;
     font-size: 13px;
 }
@@ -21,26 +21,25 @@ h1 {
 
 h2 {
     font-size: 1.7em;
-    margin:0;
-    padding: 0;
     margin:3px;
+    padding: 0;
 }
 
 .text-block {
-    border-radius: 8px;
     background-color: rgba(33, 33, 33, 0.9);
+    border-radius: 8px;
     color: white;
-    padding: 20px;
     margin-bottom: 10px;
+    padding: 20px;
 }
 
 /***************************************************************
 ************************** HEADER ******************************
 ****************************************************************/
 header {
-    text-align: center;
     margin: 0 auto;
     max-width: 1200px;
+    text-align: center;
 }
 
 /***************************************************************
@@ -125,6 +124,7 @@ nav a {
 
 .newscaroussel .slick-slide {
     background-size: contain;
+    cursor: pointer;
     padding:10px;
     padding-top:10px;
 }
@@ -137,9 +137,9 @@ nav a {
 
 /*NEWS*/
 .newslist, .newslistmore {
+    color:white;
     list-style: none;
     padding:0;
-    color:white;
 }
 
 .newslist li, .newslistmore li {
@@ -189,8 +189,8 @@ nav a {
 }
 
 .morenews {
-    text-align: center;
     font-weight: bold;
+    text-align: center;
 }
 .morenews span {
     cursor: pointer;
@@ -207,10 +207,6 @@ nav a {
 
 .eventCalendar-currentTitle,  .eventCalendar-monthTitle {
     background-color: #000;
-}
-
-.general-panel {
-   /* width: 80%;*/
 }
 
 /*FOOTER*/
