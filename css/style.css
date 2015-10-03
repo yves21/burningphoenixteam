@@ -136,34 +136,35 @@ nav a {
 }
 
 /*NEWS*/
-.newslist {
+.newslist, .newslistmore {
     list-style: none;
     padding:0;
     color:white;
 }
 
-.newslist li {
+.newslist li, .newslistmore li {
     background-color:#b8825e;
-/*    border: 1px solid black;*/
     border-radius: 8px;
+    cursor:pointer;
     margin:5px;
-    min-height: 150px;
     overflow:hidden;
     padding:5px;
 }
 
-.newslist .newspicture {
-    float:left;
-/*    border:1px solid black;*/
+.newslist li {
+    min-height: 150px;
 }
 
-.newslist .newsdetail {
+.newslist .newspicture {
+    float:left;
+}
+
+.newslist li .newsdetail {
     float:right;
-/*    border:1px solid black;*/
     max-width: 400px;
 }
 
-.newslist h1 {
+.newslist h1, .newslistmore h1 {
     background-color: #7f6453;
     border-radius: 8px;
     font-family: verdana;
@@ -172,16 +173,33 @@ nav a {
     padding:5px;
 }
 
-.newslist h2 {
+.newslist h2, .newslistmore h2 {
     font-family: verdana;
     font-size: 1.3em;
     margin:3px;
     padding:5px;
 }
 
-.newslist p {
+.newslist p, .newslistmore p {
     clear: both;
 }
+
+.newslistmore {
+    display: none;
+}
+
+.morenews {
+    text-align: center;
+    font-weight: bold;
+}
+.morenews span {
+    cursor: pointer;
+    text-decoration: underline;
+}
+.morenews span:hover {
+    color:#7f6453;
+}
+
 /*CALENDRIER*/
 #jq-calendar {
     width: 100%;

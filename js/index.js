@@ -37,4 +37,11 @@ $(document).ready(function() {
         window.location.href="index.php?newsid=" + id;
     });
 
+    $("ul.newslist li,ul.newslistmore li").click(function() {
+        window.location.href="index.php?newsid=" + $(this).attr("id");
+    });
+
+    $(".morenews span").click(function() {
+        $("ul.newslistmore").toggle();
+    });
 });

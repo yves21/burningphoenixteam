@@ -70,7 +70,7 @@ if (isset($_POST['bt_submit'])) {
 
                 <ul>
                     <?php
-                        $allnews = $bptDao->getAllNews(10);
+                        $allnews = $bptDao->getAllNews(0);
                         foreach ($allnews as $newsitem) {
                             echo "<li><a href='newsmanagement.php?edit=".$newsitem['id']."'>".$newsitem['subject']."</a>"
                                     ." <span class='glyphicon glyphicon-trash delete-news' id='".$newsitem['id']."'></span></li>";

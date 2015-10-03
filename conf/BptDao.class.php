@@ -122,7 +122,7 @@ class BptDao
         if ($stmt->execute()) {
             while ($row = $stmt->fetch()) {
                 $results[] = $row;
-                if (++$index > $limit) {
+                if ($limit > 0 && ++$index > $limit) {
                     break;
                 }
             }
