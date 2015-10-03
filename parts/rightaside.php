@@ -40,7 +40,7 @@
         <!--************END CODE GEOMAP************-->
         <script language="JavaScript">
         <!--
-        iplocationtools_width = 280; // The width of API, minimum 160px, maximum 400px
+        iplocationtools_width = 300; // The width of API, minimum 160px, maximum 400px
         iplocationtools_height = 280; // The height of API, minimum 80px, maximum 800px
         iplocationtools_border_size = 1; // The size of the border
         iplocationtools_border_color = '000000'; // Color of the border
@@ -49,7 +49,7 @@
         iplocationtools_font_size = 10; // Font size
         iplocationtools_show_time = 1; // Enable time stamp, 1=Enable,0=Disable
         iplocationtools_time_zone = 8; // Change this to display correct time
-        iplocationtools_custom_bg = ""; // Background image's URL
+        iplocationtools_custom_bg = "image/blackmap.jpg"; // Background image's URL
         //-->
         </script>
         <script language="JavaScript"
