@@ -17,7 +17,7 @@ foreach ( $json_data->items as $item ) {
     }
     $format = "Y-m-d\TH:i:sP";
     $date = DateTime::createFromFormat($format,$startdate);
-    echo '{"date": "'.$date->format('Y-m-d H:i:s').'", "type": "meeting", "title": "'.$summary.'", "description": "'.$desc.'" }';
+    echo '{"date": "'.$date->format('Y-m-d H:i:s').'", "type": "meeting", "title": "'.$summary.'", "description": '.$desc.' }';
     if(++$i !== $numItems) {
         echo ",";
     }
