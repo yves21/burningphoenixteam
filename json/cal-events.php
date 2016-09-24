@@ -4,6 +4,7 @@ $oneYearAgoTime = strtotime("-6 month", time());
 $oneYearAgoDate = date("c", $oneYearAgoTime);
 $url = "https://www.googleapis.com/calendar/v3/calendars/bpt.burningphoenixteam@gmail.com/events?showDeleted=false&updatedMin=".urlencode($oneYearAgoDate)."&key=AIzaSyBDIor8rccGDkDD4oHmBFlmZnVv-rO3Y-k";
 $json = file_get_contents($url, 0, null, null);
+$json = json_encode($json);
 $json_data = json_decode($json);
 $numItems = count($json_data->items);
 $i = 0;
