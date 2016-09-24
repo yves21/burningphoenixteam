@@ -1,6 +1,8 @@
 <?php
 header('Content-Type: application/json');
-$url = "https://www.googleapis.com/calendar/v3/calendars/bpt.burningphoenixteam@gmail.com/events?maxResults=15&key=AIzaSyBDIor8rccGDkDD4oHmBFlmZnVv-rO3Y-k";
+$oneYearAgoTime = strtotime("-1 year", time());
+$oneYearAgoDate = date("c", $oneYearAgoTime);
+$url = "https://www.googleapis.com/calendar/v3/calendars/bpt.burningphoenixteam@gmail.com/events?showDeleted=false&updatedMin=".$oneYearAgoDate."&key=AIzaSyBDIor8rccGDkDD4oHmBFlmZnVv-rO3Y-k";
 $json = file_get_contents($url, 0, null, null);
 $json_data = json_decode($json);
 $numItems = count($json_data->items);
