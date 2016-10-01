@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $("#jq-calendar").eventCalendar({
         // link to events json
-        eventsjson: "json/cal-events.php",
+        eventsjson: "json/cal-events-local.php",
         jsonDateFormat: "human",
         showDescription: true
     });

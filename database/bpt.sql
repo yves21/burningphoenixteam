@@ -77,6 +77,20 @@ CREATE TABLE IF NOT EXISTS `news` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `events`
+--
+
+CREATE TABLE IF NOT EXISTS `events` (
+  `id` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  `subject` varchar(120) NOT NULL,
+  `summary` varchar(255) NOT NULL,
+  `author` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `requests`
 --
 
@@ -172,14 +186,21 @@ ALTER TABLE `config`
 --
 ALTER TABLE `games`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `author_fk` (`author`);
+  ADD FOREIGN KEY `author_fk` (`author`) REFERENCES users(id) ;
 
 --
 -- Index pour la table `news`
 --
 ALTER TABLE `news`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `author_fk` (`author`);
+  ADD FOREIGN KEY `author_fk` (`author`) REFERENCES  users(id);
+
+--
+-- Index pour la table `events`
+--
+ALTER TABLE `events`
+ADD PRIMARY KEY (`id`),
+ADD FOREIGN KEY `author_fk` (`author`) REFERENCES users(id);
 
 --
 -- Index pour la table `requests`
@@ -242,6 +263,11 @@ ALTER TABLE `games`
 --
 ALTER TABLE `news`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `events`
+--
+ALTER TABLE `events`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `requests`
 --

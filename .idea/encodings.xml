@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/admin/admin.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/auth/confirm.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/auth/logout.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/auth/register.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/conf/BptDao.class.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/conf/auth-config.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/conf/fn-utils.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/game.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/json/cal-events.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/parts/js-script.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/parts/leftaside.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/parts/meta-css.php" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

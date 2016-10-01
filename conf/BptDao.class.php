@@ -17,6 +17,61 @@ class BptDao
 		$this->bdd = $bdd;
 	}
 
+    /*
+     * EVENTS
+     */
+    public function insertEvent($date, $subject, $summary, $author) {
+        $stmt = $this->bdd->prepare('INSERT INTO events(date, subject, summary, author) VALUES (:date, :subject, :summary, :author)');
+        $stmt->bindParam(':date', $date);
+        $stmt->bindParam(':subject', $subject);
+        $stmt->bindParam(':summary', $summary);
+        $stmt->bindParam(':author',  $author);
+        $stmt->execute();
+    }
+
+    public function updateEvent($eventid, $date, $subject, $summary, $author) {
+        $stmt = $this->bdd->prepare('UPDATE events set date=:date, subject=:subject, summary=:summary, author=:author WHERE id=:eventid');
+        $stmt->bindParam(':date', $date);
+        $stmt->bindParam(':subject', $subject);
+        $stmt->bindParam(':summary', $summary);
+        $stmt->bindParam(':author', $author);
+        $stmt->bindParam(':eventid',  $eventid);
+        $stmt->execute();
+    }
+
+    public function deleteEvent($eventid) {
+        $stmt = $this->bdd->prepare('DELETE FROM events WHERE id=:eventid');
+        $stmt->bindParam(':eventid',  $eventid);
+        $stmt->execute();
+    }
+
+    public function getAllEvents($limit) {
+        $index = 1;
+        $results = array();
+        $stmt = $this->bdd->prepare("SELECT id, date, subject, summary, author FROM events ORDER BY date desc");
+        $stmt->execute();
+        if ($stmt->execute()) {
+            while ($row = $stmt->fetch()) {
+                $results[] = $row;
+                if ($limit > 0 && ++$index > $limit) {
+                    break;
+                }
+            }
+        }
+        return $results;
+    }
+
+    public function getEventById($eventid) {
+        $stmt = $this->bdd->prepare("SELECT id, date, subject, summary, author FROM events WHERE id=?");
+        $stmt->execute(array($eventid));
+        if ($stmt->execute()) {
+            return $stmt->fetch();
+        }
+    }
+
+    /*
+     * NEWS
+     */
     public function insertNews($subject, $summary, $content, $imageName, $author) {
         $stmt = $this->bdd->prepare('INSERT INTO news(subject, summary, content, image, author, created) VALUES (:subject, :summary, :content, :image, :author, :created)');
         $stmt->bindParam(':subject', $subject);
@@ -47,6 +102,33 @@ class BptDao
         $stmt->execute();
     }
 
+    public function getAllNews($limit) {
+        $index = 1;
+        $results = array();
+        $stmt = $this->bdd->prepare("SELECT id, subject, summary, image, author, created FROM news ORDER BY created desc");
+        $stmt->execute();
+        if ($stmt->execute()) {
+            while ($row = $stmt->fetch()) {
+                $results[] = $row;
+                if ($limit > 0 && ++$index > $limit) {
+                    break;
+                }
+            }
+        }
+        return $results;
+    }
+
+    public function getNewsById($newsid) {
+        $stmt = $this->bdd->prepare("SELECT id, subject, summary, content, image, author, created FROM news WHERE id=?");
+        $stmt->execute(array($newsid));
+        if ($stmt->execute()) {
+            return $stmt->fetch();
+        }
+    }
+
+    /*
+     * GAMES
+     */
     public function createGame($name, $content, $userid) {
         $stmt = $this->bdd->prepare('INSERT INTO games(name, content, author) VALUES (:name, :content, :authorid)');
         $stmt->bindParam(':name', $name);
@@ -69,6 +151,29 @@ class BptDao
         $stmt->execute();
     }
 
+    public function getGames() {
+        $results = array();
+        $stmt = $this->bdd->prepare("SELECT id, name FROM games");
+        $stmt->execute();
+        if ($stmt->execute()) {
+            while ($row = $stmt->fetch()) {
+                $results[] = $row;
+            }
+        }
+        return $results;
+    }
+
+    public function getGame($gameid) {
+        $stmt = $this->bdd->prepare("SELECT id, name, content, author FROM games where id = ?");
+        $stmt->execute(array($gameid));
+        if ($stmt->execute()) {
+            return $stmt->fetch();
+        }
+    }
+
+    /*
+     * PROFILES
+     */
     public function createProfile($userid, $username) {
         $stmt = $this->bdd->prepare('INSERT INTO userprofile(user_id, username) VALUES (:user_id, :username)');
         $stmt->bindParam(':user_id', $userid);
@@ -84,6 +189,9 @@ class BptDao
         }
     }
 
+    /*
+     * UTILS
+     */
     public function hasRole($userid, $role) {
         $stmt = $this->bdd->prepare('select user_id, role_id from userroles, roles where user_id=? and roles.role = ? and role_id = roles.id');
         if ($stmt->execute(array($userid, $role))) {
@@ -108,50 +216,9 @@ class BptDao
         return $results;
     }
 
-    public function getGames() {
-        $results = array();
-        $stmt = $this->bdd->prepare("SELECT id, name FROM games");
-        $stmt->execute();
-        if ($stmt->execute()) {
-            while ($row = $stmt->fetch()) {
-                $results[] = $row;
-            }
-        }
-        return $results;
-    }
-
-     public function getAllNews($limit) {
-        $index = 1;
-        $results = array();
-        $stmt = $this->bdd->prepare("SELECT id, subject, summary, image, author, created FROM news ORDER BY created desc");
-        $stmt->execute();
-        if ($stmt->execute()) {
-            while ($row = $stmt->fetch()) {
-                $results[] = $row;
-                if ($limit > 0 && ++$index > $limit) {
-                    break;
-                }
-            }
-        }
-        return $results;
-    }
-
-     public function getNewsById($newsid) {
-        $stmt = $this->bdd->prepare("SELECT id, subject, summary, content, image, author, created FROM news WHERE id=?");
-        $stmt->execute(array($newsid));
-        if ($stmt->execute()) {
-            return $stmt->fetch();
-        }
-    }
-
-    public function getGame($gameid) {
-        $stmt = $this->bdd->prepare("SELECT id, name, content, author FROM games where id = ?");
-        $stmt->execute(array($gameid));
-        if ($stmt->execute()) {
-            return $stmt->fetch();
-        }
-    }
-
+    /*
+     * ROLES
+     */
     public function getRoles() {
         $results = array();
         $stmt = $this->bdd->prepare("SELECT id, role FROM roles");

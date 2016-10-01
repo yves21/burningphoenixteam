@@ -1,9 +1,6 @@
 <?php define('BASE','../');
-
 require(BASE."conf/auth-config.php");
-
 securedAccess($userid, $bptDao, '');
-
 ?>
 
 <!doctype html>
@@ -27,6 +24,7 @@ securedAccess($userid, $bptDao, '');
                     <li><a href="<?= BASE ?>admin/newsmanagement.php">Gestion des news</a></li>
                     <li><a href="<?= BASE ?>admin/usermanagement.php">User administration</a></li>
                     <li><a href="<?= BASE ?>admin/gamemanagement.php">Gestion des jeux</a></li>
+                    <li><a href="<?= BASE ?>admin/eventsmanagement.php">Gestion des événements</a></li>
                 </ul>
 
             </div>
