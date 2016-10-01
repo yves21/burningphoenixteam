@@ -26,7 +26,6 @@
             <li><a href="https://www.youtube.com/channel/UCnuYKZKb-LFy7SXYDQiDeMQ">Kebooz</a></li>
             <li><a href="https://www.youtube.com/channel/UCtOqRXhQ9Alej12qfAlXL2A">Stef</a></li>
             <li><a href="https://www.youtube.com/channel/UCGDc6uF8qRq1e9LS1cTayiA">Luxun</a></li>
-            <li><a href="http://www.twitch.tv/drangonlee">Dragon lee</a> <span id="twitchdrangonlee"></span></li>
             <li><a href="https://www.youtube.com/channel/UClXMqXtP-rs6eDXNqrRw4Vw">Freyr</a></li>
             <li><a href="http://www.twitch.tv/yves21haut">Yves21</a> <span id="twitchyves21haut"></span></li>
         </ul>
